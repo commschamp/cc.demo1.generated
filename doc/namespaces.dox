@@ -1,0 +1,18 @@
+/// @namespace demo1
+/// @brief Main namespace for all classes / functions of this protocol library.
+
+/// @namespace demo1::message
+/// @brief Main namespace for all the messages defined in this protocol.
+
+/// @namespace demo1::field
+/// @brief Main namespace for all the stand alone fields defined in this protocol.
+
+/// @namespace demo1::frame
+/// @brief Main namespace for all the frames.
+
+/// @namespace demo1::frame::layer
+/// @brief Main namespace for the custom frame layers.
+
+/// @namespace demo1::frame::checksum
+/// @brief Main namespace for the custom frame layers.
+

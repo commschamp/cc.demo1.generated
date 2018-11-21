@@ -1,0 +1,45 @@
+/// @file
+/// @brief Contains definition of <b>"Lat"</b> field.
+
+#pragma once
+
+#include <cstdint>
+#include "comms/field/IntValue.h"
+#include "comms/options.h"
+#include "demo1/DefaultOptions.h"
+#include "demo1/field/FieldBase.h"
+
+namespace demo1
+{
+
+namespace field
+{
+
+/// @brief Definition of <b>"Lat"</b> field.
+/// @details
+///     Latitude in 1/10^7 of the degrees
+/// @tparam TOpt Protocol options.
+/// @tparam TExtraOpts Extra options.
+template <typename TOpt = demo1::DefaultOptions, typename... TExtraOpts>
+struct Lat : public
+    comms::field::IntValue<
+        demo1::field::FieldBase<>,
+        std::int32_t,
+        TExtraOpts...,
+        comms::option::ScalingRatio<1, 10000000L>,
+        comms::option::UnitsDegrees
+    >
+{
+    /// @brief Name of the field.
+    static const char* name()
+    {
+        return "Lat";
+    }
+    
+};
+
+} // namespace field
+
+} // namespace demo1
+
+
