@@ -83,7 +83,7 @@ struct BitfieldsFields
             
         };
         
-        /// @brief Values enumerator for @ref Mem3 field.
+        /// @brief Values enumerator for @ref demo1::field::Mem3 field.
         enum class Mem3Val : std::uint8_t
         {
             V1 = 0, ///< value @b V1
@@ -92,6 +92,7 @@ struct BitfieldsFields
         };
         
         /// @brief Definition of <b>"Mem3"</b> field.
+        /// @see @ref demo1::field::Mem3Val
         struct Mem3 : public
             comms::field::EnumValue<
                 demo1::field::FieldBase<>,
