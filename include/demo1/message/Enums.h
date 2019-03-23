@@ -25,7 +25,7 @@ namespace message
 template <typename TOpt = demo1::DefaultOptions>
 struct EnumsFields
 {
-    /// @brief Values enumerator for @ref F1 field.
+    /// @brief Values enumerator for @ref demo1::field::F1 field.
     enum class F1Val : std::uint8_t
     {
         V0 = 0, ///< value @b V0
@@ -37,6 +37,7 @@ struct EnumsFields
     /// @brief Definition of <b>"F1"</b> field.
     /// @details
     ///     Simple enum with sequential values
+    /// @see @ref demo1::field::F1Val
     struct F1 : public
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
@@ -52,7 +53,7 @@ struct EnumsFields
         
     };
     
-    /// @brief Values enumerator for @ref F2 field.
+    /// @brief Values enumerator for @ref demo1::field::F2 field.
     enum class F2Val : std::int16_t
     {
         V1 = -1, ///< value @b V1
@@ -65,6 +66,7 @@ struct EnumsFields
     /// @brief Definition of <b>"F2"</b> field.
     /// @details
     ///     Enum with signed values
+    /// @see @ref demo1::field::F2Val
     struct F2 : public
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
@@ -82,7 +84,7 @@ struct EnumsFields
         
     };
     
-    /// @brief Values enumerator for @ref F3 field.
+    /// @brief Values enumerator for @ref demo1::field::F3 field.
     enum class F3Val : std::uint32_t
     {
         V1 = 0x010203UL, ///< value @b V1
@@ -93,6 +95,7 @@ struct EnumsFields
     /// @brief Definition of <b>"F3"</b> field.
     /// @details
     ///     Enum with non-standard length
+    /// @see @ref demo1::field::F3Val
     struct F3 : public
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
@@ -111,7 +114,7 @@ struct EnumsFields
         
     };
     
-    /// @brief Values enumerator for @ref F4 field.
+    /// @brief Values enumerator for @ref demo1::field::F4 field.
     enum class F4Val : std::uint16_t
     {
         V1 = 0U, ///< value @b V1
@@ -122,6 +125,7 @@ struct EnumsFields
     /// @brief Definition of <b>"F4"</b> field.
     /// @details
     ///     Enum with variable length
+    /// @see @ref demo1::field::F4Val
     struct F4 : public
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
