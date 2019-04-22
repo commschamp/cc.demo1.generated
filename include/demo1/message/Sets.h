@@ -4,12 +4,13 @@
 #pragma once
 
 #include <tuple>
+#include <type_traits>
 #include "comms/MessageBase.h"
 #include "comms/field/BitmaskValue.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -21,7 +22,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Sets
 /// @headerfile "demo1/message/Sets.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct SetsFields
 {
     /// @brief Definition of <b>"F1"</b> field.
@@ -60,6 +61,25 @@ struct SetsFields
         static const char* name()
         {
             return "F1";
+        }
+        
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "Bit0",
+                "Bit1",
+                "Bit2"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
         }
         
     };
@@ -115,6 +135,38 @@ struct SetsFields
             return "F2";
         }
         
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "Bit0",
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                nullptr,
+                "Bit15"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
+        }
+        
     };
     
     /// @brief Definition of <b>"F3"</b> field.
@@ -166,6 +218,25 @@ struct SetsFields
             return "F3";
         }
         
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "Bit0",
+                nullptr,
+                "Bit2"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
+        }
+        
     };
     
     /// @brief All the fields bundled in std::tuple.
@@ -182,7 +253,7 @@ struct SetsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Sets.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Sets : public
     comms::MessageBase<
         TMsgBase,

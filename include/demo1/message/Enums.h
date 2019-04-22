@@ -3,14 +3,18 @@
 
 #pragma once
 
+#include <algorithm>
 #include <cstdint>
+#include <iterator>
 #include <tuple>
+#include <type_traits>
+#include <utility>
 #include "comms/MessageBase.h"
 #include "comms/field/EnumValue.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -22,7 +26,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Enums
 /// @headerfile "demo1/message/Enums.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct EnumsFields
 {
     /// @brief Values enumerator for @ref demo1::message::EnumsFields::F1 field.
@@ -49,6 +53,23 @@ struct EnumsFields
         static const char* name()
         {
             return "F1";
+        }
+        
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(F1Val val)
+        {
+            static const char* Map[] = {
+                "V0",
+                "V1",
+                "V2"
+            };
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            
+            if (MapSize <= static_cast<std::size_t>(val)) {
+                return nullptr;
+            }
+            
+            return Map[static_cast<std::size_t>(val)];
         }
         
     };
@@ -82,6 +103,31 @@ struct EnumsFields
             return "F2";
         }
         
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(F2Val val)
+        {
+            using NameInfo = std::pair<F2Val, const char*>;
+            static const NameInfo Map[] = {
+                std::make_pair(F2Val::V1, "V1"),
+                std::make_pair(F2Val::V2, "V2"),
+                std::make_pair(F2Val::V3, "V3"),
+                std::make_pair(F2Val::V4, "V4")
+            };
+            
+            auto iter = std::lower_bound(
+                std::begin(Map), std::end(Map), val,
+                [](const NameInfo& info, F2Val v) -> bool
+                {
+                    return info.first < v;
+                });
+            
+            if ((iter == std::end(Map)) || (iter->first != val)) {
+                return nullptr;
+            }
+            
+            return iter->second;
+        }
+        
     };
     
     /// @brief Values enumerator for @ref demo1::message::EnumsFields::F3 field.
@@ -110,6 +156,29 @@ struct EnumsFields
         static const char* name()
         {
             return "F3";
+        }
+        
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(F3Val val)
+        {
+            using NameInfo = std::pair<F3Val, const char*>;
+            static const NameInfo Map[] = {
+                std::make_pair(F3Val::V1, "V1"),
+                std::make_pair(F3Val::V2, "V2")
+            };
+            
+            auto iter = std::lower_bound(
+                std::begin(Map), std::end(Map), val,
+                [](const NameInfo& info, F3Val v) -> bool
+                {
+                    return info.first < v;
+                });
+            
+            if ((iter == std::end(Map)) || (iter->first != val)) {
+                return nullptr;
+            }
+            
+            return iter->second;
         }
         
     };
@@ -141,6 +210,29 @@ struct EnumsFields
             return "F4";
         }
         
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(F4Val val)
+        {
+            using NameInfo = std::pair<F4Val, const char*>;
+            static const NameInfo Map[] = {
+                std::make_pair(F4Val::V1, "V1"),
+                std::make_pair(F4Val::V2, "V2")
+            };
+            
+            auto iter = std::lower_bound(
+                std::begin(Map), std::end(Map), val,
+                [](const NameInfo& info, F4Val v) -> bool
+                {
+                    return info.first < v;
+                });
+            
+            if ((iter == std::end(Map)) || (iter->first != val)) {
+                return nullptr;
+            }
+            
+            return iter->second;
+        }
+        
     };
     
     /// @brief All the fields bundled in std::tuple.
@@ -158,7 +250,7 @@ struct EnumsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Enums.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Enums : public
     comms::MessageBase<
         TMsgBase,

@@ -20,6 +20,9 @@ namespace demo1
 namespace cc_plugin
 {
 
+namespace input
+{
+
 using AllMessages =
     std::tuple<
         demo1::cc_plugin::message::Ack,
@@ -35,6 +38,8 @@ using AllMessages =
         demo1::cc_plugin::message::Optionals,
         demo1::cc_plugin::message::Variants
     >;
+
+} // namespace input
 
 } // namespace cc_plugin
 
