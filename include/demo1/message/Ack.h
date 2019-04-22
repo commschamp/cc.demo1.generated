@@ -6,10 +6,10 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
 #include "demo1/field/MsgId.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -21,14 +21,14 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Ack
 /// @headerfile "demo1/message/Ack.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct AckFields
 {
     /// @brief Definition of <b>"MsgId"</b> field.
     using MsgId =
         demo1::field::MsgId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -42,7 +42,7 @@ struct AckFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Ack.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Ack : public
     comms::MessageBase<
         TMsgBase,

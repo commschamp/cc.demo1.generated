@@ -6,8 +6,8 @@
 #include <cstdint>
 #include "comms/field/IntValue.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -20,7 +20,7 @@ namespace field
 ///     Longitude in 1/10^7 of the degrees
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
-template <typename TOpt = demo1::DefaultOptions, typename... TExtraOpts>
+template <typename TOpt = demo1::options::DefaultOptions, typename... TExtraOpts>
 struct Lon : public
     comms::field::IntValue<
         demo1::field::FieldBase<>,

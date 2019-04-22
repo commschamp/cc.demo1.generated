@@ -6,8 +6,8 @@ function (cc_plugin_all_messages)
     set (name "${ALL_MESSAGES_LIB}")
     set (src
         field/Lat.cpp
-        field/Lon.cpp
         field/MsgId.cpp
+        field/Lon.cpp
         Message.cpp
         message/Ack.cpp
         message/Bitfields.cpp
@@ -34,7 +34,7 @@ function (cc_plugin_all_messages)
         endif()
     endif ()
 
-    if (OPT_FULL_SOLUTION)
+    if (TARGET ${CC_EXTERNAL_TGT})
         add_dependencies(${name} ${CC_EXTERNAL_TGT})
     endif ()
 endfunction()
@@ -111,7 +111,7 @@ cc_plugin_all_messages()
 
 cc_plugin ("Demo1")
 
-if (OPT_FULL_SOLUTION)
+if (TARGET ${CC_EXTERNAL_TGT})
     install (
         FILES plugin/Demo1.cfg
         DESTINATION ${CONFIG_INSTALL_DIR}

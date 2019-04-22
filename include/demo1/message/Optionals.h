@@ -5,14 +5,15 @@
 
 #include <cstdint>
 #include <tuple>
+#include <type_traits>
 #include "comms/MessageBase.h"
 #include "comms/field/BitmaskValue.h"
 #include "comms/field/IntValue.h"
 #include "comms/field/Optional.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -24,7 +25,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Optionals
 /// @headerfile "demo1/message/Optionals.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct OptionalsFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
@@ -61,6 +62,24 @@ struct OptionalsFields
         static const char* name()
         {
             return "Flags";
+        }
+        
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "F2Exists",
+                "F3Missing"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
         }
         
     };
@@ -151,7 +170,7 @@ struct OptionalsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Optionals.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Optionals : public
     comms::MessageBase<
         TMsgBase,

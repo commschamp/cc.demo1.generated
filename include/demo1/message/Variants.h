@@ -12,9 +12,9 @@
 #include "comms/field/String.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -26,7 +26,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Variants
 /// @headerfile "demo1/message/Variants.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct VariantsFields
 {
     /// @brief Scope for all the member fields of @ref Properties list.
@@ -368,7 +368,7 @@ struct VariantsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Variants.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Variants : public
     comms::MessageBase<
         TMsgBase,

@@ -11,9 +11,9 @@
 #include "comms/field/IntValue.h"
 #include "comms/field/String.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -25,7 +25,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Lists
 /// @headerfile "demo1/message/Lists.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct ListsFields
 {
     /// @brief Definition of <b>"F2Count"</b> field.
@@ -515,7 +515,7 @@ struct ListsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Lists.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Lists : public
     comms::MessageBase<
         TMsgBase,

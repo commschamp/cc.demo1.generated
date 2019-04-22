@@ -1,15 +1,24 @@
 /// @file
-/// @brief Contains definition of protocol default options.
+/// @brief Contains definition of protocol default options for bare-metal application
+///    where usage of dynamic memory allocation is disabled.
 
 #pragma once
 
-#include "comms/options.h"
+#ifndef DEFAULT_SEQ_FIXED_STORAGE_SIZE
+/// @brief Define default fixed size for various sequence fields
+/// @details May be defined during compile time to change the default value.
+#define DEFAULT_SEQ_FIXED_STORAGE_SIZE 32
+#endif
 
 namespace demo1
 {
 
-/// @brief Default (empty) options of the protocol.
-struct DefaultOptions
+namespace options
+{
+
+/// @brief Default options for bare-metal application where usage of dynamic
+///    memory allocation is diabled.
+struct BareMetalDefaultOptions
 {
     /// @brief Extra options for messages.
     struct message
@@ -24,16 +33,16 @@ struct DefaultOptions
         struct DatasFields
         {
             /// @brief Extra options for @ref demo1::message::DatasFields::F1 field.
-            using F1 = comms::option::EmptyOption;
+            using F1 = comms::option::SequenceFixedSizeUseFixedSizeStorage;
             
             /// @brief Extra options for @ref demo1::message::DatasFields::F2 field.
-            using F2 = comms::option::EmptyOption;
+            using F2 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::DatasFields::F3 field.
-            using F3 = comms::option::EmptyOption;
+            using F3 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::DatasFields::F4 field.
-            using F4 = comms::option::EmptyOption;
+            using F4 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
         }; // struct DatasFields
         
@@ -50,13 +59,13 @@ struct DefaultOptions
         struct ListsFields
         {
             /// @brief Extra options for @ref demo1::message::ListsFields::F1 field.
-            using F1 = comms::option::EmptyOption;
+            using F1 = comms::option::SequenceFixedSizeUseFixedSizeStorage;
             
             /// @brief Extra options for @ref demo1::message::ListsFields::F2 field.
-            using F2 = comms::option::EmptyOption;
+            using F2 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::ListsFields::F3 field.
-            using F3 = comms::option::EmptyOption;
+            using F3 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for all the member fields of @ref demo1::message::ListsFields::F4 string.
             struct F4Members
@@ -65,17 +74,17 @@ struct DefaultOptions
                 struct ElementMembers
                 {
                     /// @brief Extra options for @ref demo1::message::ListsFields::F4Members::ElementMembers::Mem2 field.
-                    using Mem2 = comms::option::EmptyOption;
+                    using Mem2 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
                     
                 };
                 
             };
             
             /// @brief Extra options for @ref demo1::message::ListsFields::F4 field.
-            using F4 = comms::option::EmptyOption;
+            using F4 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::ListsFields::F5 field.
-            using F5 = comms::option::EmptyOption;
+            using F5 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
         }; // struct ListsFields
         
@@ -98,19 +107,19 @@ struct DefaultOptions
         struct StringsFields
         {
             /// @brief Extra options for @ref demo1::message::StringsFields::F1 field.
-            using F1 = comms::option::EmptyOption;
+            using F1 = comms::option::SequenceFixedSizeUseFixedSizeStorage;
             
             /// @brief Extra options for @ref demo1::message::StringsFields::F2 field.
-            using F2 = comms::option::EmptyOption;
+            using F2 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::StringsFields::F3 field.
-            using F3 = comms::option::EmptyOption;
+            using F3 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::StringsFields::F4 field.
-            using F4 = comms::option::EmptyOption;
+            using F4 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
             /// @brief Extra options for @ref demo1::message::StringsFields::F5 field.
-            using F5 = comms::option::EmptyOption;
+            using F5 = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
         }; // struct StringsFields
         
@@ -130,7 +139,7 @@ struct DefaultOptions
                     struct Prop3Members
                     {
                         /// @brief Extra options for @ref demo1::message::VariantsFields::PropertiesMembers::PropertyMembers::Prop3Members::Val field.
-                        using Val = comms::option::EmptyOption;
+                        using Val = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
                         
                     };
                     
@@ -139,7 +148,7 @@ struct DefaultOptions
             };
             
             /// @brief Extra options for @ref demo1::message::VariantsFields::Properties field.
-            using Properties = comms::option::EmptyOption;
+            using Properties = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>;
             
         }; // struct VariantsFields
         
@@ -155,10 +164,10 @@ struct DefaultOptions
         struct FrameLayers
         {
             /// @brief Extra options for @ref demo1::frame::FrameLayers::Data layer.
-            using Data = comms::option::EmptyOption;
+            using Data = comms::option::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE * 8>;
             
             /// @brief Extra options for @ref demo1::frame::FrameLayers::Id layer.
-            using Id = comms::option::EmptyOption;
+            using Id = comms::option::InPlaceAllocation;
             
         }; // struct FrameLayers
         
@@ -166,6 +175,8 @@ struct DefaultOptions
     
     
 };
+
+} // namespace options
 
 } // namespace demo1
 

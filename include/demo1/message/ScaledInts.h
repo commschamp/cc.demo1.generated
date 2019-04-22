@@ -8,11 +8,11 @@
 #include "comms/MessageBase.h"
 #include "comms/field/IntValue.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
 #include "demo1/field/Lat.h"
 #include "demo1/field/Lon.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -24,20 +24,20 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref ScaledInts
 /// @headerfile "demo1/message/ScaledInts.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct ScaledIntsFields
 {
     /// @brief Definition of <b>"Lat"</b> field.
     using Lat =
         demo1::field::Lat<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"Lon"</b> field.
     using Lon =
         demo1::field::Lon<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"Height"</b> field.
     /// @details
@@ -90,7 +90,7 @@ struct ScaledIntsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/ScaledInts.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class ScaledInts : public
     comms::MessageBase<
         TMsgBase,

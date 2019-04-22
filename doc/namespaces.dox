@@ -16,3 +16,9 @@
 /// @namespace demo1::frame::checksum
 /// @brief Main namespace for the custom frame layers.
 
+/// @namespace demo1::options
+/// @brief Main namespace for the various protocol options.
+
+/// @namespace demo1::input
+/// @brief Main namespace for hold input messages bundles.
+

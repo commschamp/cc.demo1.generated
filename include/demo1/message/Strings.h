@@ -9,9 +9,9 @@
 #include "comms/field/IntValue.h"
 #include "comms/field/String.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -23,7 +23,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Strings
 /// @headerfile "demo1/message/Strings.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct StringsFields
 {
     /// @brief Definition of <b>"F4Len"</b> field.
@@ -190,7 +190,7 @@ struct StringsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Strings.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Strings : public
     comms::MessageBase<
         TMsgBase,

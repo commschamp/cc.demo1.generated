@@ -5,15 +5,16 @@
 
 #include <cstdint>
 #include <tuple>
+#include <type_traits>
 #include "comms/MessageBase.h"
 #include "comms/field/Bitfield.h"
 #include "comms/field/BitmaskValue.h"
 #include "comms/field/EnumValue.h"
 #include "comms/field/IntValue.h"
 #include "comms/options.h"
-#include "demo1/DefaultOptions.h"
 #include "demo1/MsgId.h"
 #include "demo1/field/FieldBase.h"
+#include "demo1/options/DefaultOptions.h"
 
 namespace demo1
 {
@@ -25,7 +26,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Bitfields
 /// @headerfile "demo1/message/Bitfields.h"
-template <typename TOpt = demo1::DefaultOptions>
+template <typename TOpt = demo1::options::DefaultOptions>
 struct BitfieldsFields
 {
     /// @brief Scope for all the member fields of @ref F1 bitfield.
@@ -81,6 +82,25 @@ struct BitfieldsFields
                 return "Mem2";
             }
             
+            /// @brief Retrieve name of the bit
+            static const char* bitName(BitIdx idx)
+            {
+                static const char* Map[] = {
+                    "Bit0",
+                    "Bit1",
+                    "Bit2"
+                };
+            
+                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+                static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+            
+                if (MapSize <= static_cast<std::size_t>(idx)) {
+                    return nullptr;
+                }
+            
+                return Map[static_cast<std::size_t>(idx)];
+            }
+            
         };
         
         /// @brief Values enumerator for @ref demo1::message::BitfieldsFields::F1Members::Mem3 field.
@@ -106,6 +126,24 @@ struct BitfieldsFields
             static const char* name()
             {
                 return "Mem3";
+            }
+            
+            /// @brief Retrieve name of the enum value
+            static const char* valueName(Mem3Val val)
+            {
+                static const char* Map[] = {
+                    "V1",
+                    nullptr,
+                    nullptr,
+                    "V2"
+                };
+                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+                
+                if (MapSize <= static_cast<std::size_t>(val)) {
+                    return nullptr;
+                }
+                
+                return Map[static_cast<std::size_t>(val)];
             }
             
         };
@@ -167,7 +205,7 @@ struct BitfieldsFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "demo1/message/Bitfields.h"
-template <typename TMsgBase, typename TOpt = demo1::DefaultOptions>
+template <typename TMsgBase, typename TOpt = demo1::options::DefaultOptions>
 class Bitfields : public
     comms::MessageBase<
         TMsgBase,
