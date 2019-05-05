@@ -199,8 +199,8 @@ struct ListsFields
             
         };
         
-        /// @brief Definition of <b>"CountPrefix"</b> field.
-        struct CountPrefix : public
+        /// @brief Definition of <b>"Count"</b> field.
+        struct Count : public
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t
@@ -209,7 +209,7 @@ struct ListsFields
             /// @brief Name of the field.
             static const char* name()
             {
-                return "CountPrefix";
+                return "Count";
             }
             
         };
@@ -224,7 +224,7 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F3Members::Element,
             typename TOpt::message::ListsFields::F3,
-            comms::option::SequenceSizeFieldPrefix<typename F3Members::CountPrefix>
+            comms::option::SequenceSizeFieldPrefix<typename F3Members::Count>
         >
     {
         /// @brief Name of the field.
@@ -313,8 +313,8 @@ struct ListsFields
             
         };
         
-        /// @brief Definition of <b>"LengthPrefix"</b> field.
-        struct LengthPrefix : public
+        /// @brief Definition of <b>"Length"</b> field.
+        struct Length : public
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t
@@ -323,13 +323,13 @@ struct ListsFields
             /// @brief Name of the field.
             static const char* name()
             {
-                return "LengthPrefix";
+                return "Length";
             }
             
         };
         
-        /// @brief Definition of <b>"ElemLengthPrefix"</b> field.
-        struct ElemLengthPrefix : public
+        /// @brief Definition of <b>"ElemLength"</b> field.
+        struct ElemLength : public
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t
@@ -338,7 +338,7 @@ struct ListsFields
             /// @brief Name of the field.
             static const char* name()
             {
-                return "ElemLengthPrefix";
+                return "ElemLength";
             }
             
         };
@@ -354,8 +354,8 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F4Members::Element,
             typename TOpt::message::ListsFields::F4,
-            comms::option::SequenceSerLengthFieldPrefix<typename F4Members::LengthPrefix>,
-            comms::option::SequenceElemSerLengthFieldPrefix<typename F4Members::ElemLengthPrefix>
+            comms::option::SequenceSerLengthFieldPrefix<typename F4Members::Length>,
+            comms::option::SequenceElemSerLengthFieldPrefix<typename F4Members::ElemLength>
         >
     {
         /// @brief Name of the field.
@@ -444,8 +444,8 @@ struct ListsFields
             
         };
         
-        /// @brief Definition of <b>"LengthPrefix"</b> field.
-        struct LengthPrefix : public
+        /// @brief Definition of <b>"Count"</b> field.
+        struct Count : public
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t
@@ -454,13 +454,13 @@ struct ListsFields
             /// @brief Name of the field.
             static const char* name()
             {
-                return "LengthPrefix";
+                return "Count";
             }
             
         };
         
-        /// @brief Definition of <b>"ElemLengthPrefix"</b> field.
-        struct ElemLengthPrefix : public
+        /// @brief Definition of <b>"ElemLength"</b> field.
+        struct ElemLength : public
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t
@@ -469,7 +469,7 @@ struct ListsFields
             /// @brief Name of the field.
             static const char* name()
             {
-                return "ElemLengthPrefix";
+                return "ElemLength";
             }
             
         };
@@ -486,8 +486,8 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F5Members::Element,
             typename TOpt::message::ListsFields::F5,
-            comms::option::SequenceSizeFieldPrefix<typename F5Members::LengthPrefix>,
-            comms::option::SequenceElemFixedSerLengthFieldPrefix<typename F5Members::ElemLengthPrefix>
+            comms::option::SequenceSizeFieldPrefix<typename F5Members::Count>,
+            comms::option::SequenceElemFixedSerLengthFieldPrefix<typename F5Members::ElemLength>
         >
     {
         /// @brief Name of the field.

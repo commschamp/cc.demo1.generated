@@ -23,6 +23,7 @@ static QVariantMap createProps_f2Count()
     return
         cc::property::field::ForField<Field>()
             .name(Field::name())
+            .readOnly()
             .asMap();
     
 }
@@ -127,7 +128,7 @@ static QVariantMap createProps_f3()
             .name(Field::name())
             .add(F3Members::createProps_element())
             .serialisedHidden()
-            .prefixName("CountPrefix")
+            .prefixName("Count")
             .showPrefix()
             .asMap();
     
