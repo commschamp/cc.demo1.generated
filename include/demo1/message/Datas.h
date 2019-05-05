@@ -28,7 +28,7 @@ struct DatasFields
 {
     /// @brief Definition of <b>"F3Len"</b> field.
     /// @details
-    ///     Detached length of F4.
+    ///     Detached length of F3.
     struct F3Len : public
         comms::field::IntValue<
             demo1::field::FieldBase<>,

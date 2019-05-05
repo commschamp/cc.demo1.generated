@@ -23,6 +23,7 @@ static QVariantMap createProps_f4Len()
     return
         cc::property::field::ForField<Field>()
             .name(Field::name())
+            .readOnly()
             .asMap();
     
 }
