@@ -3,6 +3,8 @@
 #include "comms_champion/property/field.h"
 #include "comms_champion/ProtocolMessageBase.h"
 #include "demo1/message/Variants.h"
+#include "cc_plugin/field/PropRemLen.h"
+
 namespace cc = comms_champion;
 
 namespace demo1
@@ -17,7 +19,7 @@ namespace message
 namespace
 {
 
-struct PropertiesMembers
+struct Props1Members
 {
     struct PropertyMembers
     {
@@ -25,17 +27,18 @@ struct PropertiesMembers
         {
             static QVariantMap createProps_key()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop1Members::Key;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop1Members::Key;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
+                        .readOnly()
                         .asMap();
                 
             }
             
             static QVariantMap createProps_val()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop1Members::Val;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop1Members::Val;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
@@ -47,7 +50,7 @@ struct PropertiesMembers
         
         static QVariantMap createProps_prop1()
         {
-            using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop1;
+            using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop1;
             return
                 cc::property::field::ForField<Field>()
                     .name(Field::name())
@@ -61,17 +64,18 @@ struct PropertiesMembers
         {
             static QVariantMap createProps_key()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop2Members::Key;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop2Members::Key;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
+                        .readOnly()
                         .asMap();
                 
             }
             
             static QVariantMap createProps_val()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop2Members::Val;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop2Members::Val;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
@@ -83,7 +87,7 @@ struct PropertiesMembers
         
         static QVariantMap createProps_prop2()
         {
-            using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop2;
+            using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop2;
             return
                 cc::property::field::ForField<Field>()
                     .name(Field::name())
@@ -97,17 +101,18 @@ struct PropertiesMembers
         {
             static QVariantMap createProps_key()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop3Members::Key;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop3Members::Key;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
+                        .readOnly()
                         .asMap();
                 
             }
             
             static QVariantMap createProps_val()
             {
-                using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop3Members::Val;
+                using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop3Members::Val;
                 return
                     cc::property::field::ForField<Field>()
                         .name(Field::name())
@@ -119,7 +124,7 @@ struct PropertiesMembers
         
         static QVariantMap createProps_prop3()
         {
-            using Field = demo1::message::VariantsFields<>::PropertiesMembers::PropertyMembers::Prop3;
+            using Field = demo1::message::VariantsFields<>::Props1Members::PropertyMembers::Prop3;
             return
                 cc::property::field::ForField<Field>()
                     .name(Field::name())
@@ -133,7 +138,7 @@ struct PropertiesMembers
     
     static QVariantMap createProps_property()
     {
-        using Field = demo1::message::VariantsFields<>::PropertiesMembers::Property;
+        using Field = demo1::message::VariantsFields<>::Props1Members::Property;
         return
             cc::property::field::ForField<Field>()
                 .name(Field::name())
@@ -147,14 +152,233 @@ struct PropertiesMembers
     
 };
 
-static QVariantMap createProps_properties()
+static QVariantMap createProps_props1()
 {
-    using Field = demo1::message::VariantsFields<>::Properties;
+    using Field = demo1::message::VariantsFields<>::Props1;
     return
         cc::property::field::ForField<Field>()
             .name(Field::name())
-            .add(PropertiesMembers::createProps_property())
+            .add(Props1Members::createProps_property())
             .serialisedHidden()
+            .prefixName("Count")
+            .showPrefix()
+            .asMap();
+    
+}
+
+struct Props2Members
+{
+    struct PropertyMembers
+    {
+        struct Prop1Members
+        {
+            static QVariantMap createProps_type()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop1Members::Type;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .readOnly()
+                        .asMap();
+                
+            }
+            
+            static QVariantMap createProps_length()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop1Members::Length;
+                return cc_plugin::field::createProps_propRemLen(Field::name());
+                
+            }
+            
+            static QVariantMap createProps_val()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop1Members::Val;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .asMap();
+                
+            }
+            
+        };
+        
+        static QVariantMap createProps_prop1()
+        {
+            using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop1;
+            return
+                cc::property::field::ForField<Field>()
+                    .name(Field::name())
+                    .add(Prop1Members::createProps_type())
+                    .add(Prop1Members::createProps_length())
+                    .add(Prop1Members::createProps_val())
+                    .asMap();
+            
+        }
+        
+        struct Prop2Members
+        {
+            static QVariantMap createProps_type()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop2Members::Type;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .readOnly()
+                        .asMap();
+                
+            }
+            
+            static QVariantMap createProps_length()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop2Members::Length;
+                return cc_plugin::field::createProps_propRemLen(Field::name());
+                
+            }
+            
+            static QVariantMap createProps_val()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop2Members::Val;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .asMap();
+                
+            }
+            
+        };
+        
+        static QVariantMap createProps_prop2()
+        {
+            using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop2;
+            return
+                cc::property::field::ForField<Field>()
+                    .name(Field::name())
+                    .add(Prop2Members::createProps_type())
+                    .add(Prop2Members::createProps_length())
+                    .add(Prop2Members::createProps_val())
+                    .asMap();
+            
+        }
+        
+        struct Prop3Members
+        {
+            static QVariantMap createProps_type()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop3Members::Type;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .readOnly()
+                        .asMap();
+                
+            }
+            
+            static QVariantMap createProps_length()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop3Members::Length;
+                return cc_plugin::field::createProps_propRemLen(Field::name());
+                
+            }
+            
+            static QVariantMap createProps_val()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop3Members::Val;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .asMap();
+                
+            }
+            
+        };
+        
+        static QVariantMap createProps_prop3()
+        {
+            using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop3;
+            return
+                cc::property::field::ForField<Field>()
+                    .name(Field::name())
+                    .add(Prop3Members::createProps_type())
+                    .add(Prop3Members::createProps_length())
+                    .add(Prop3Members::createProps_val())
+                    .asMap();
+            
+        }
+        
+        struct UnknownPropMembers
+        {
+            static QVariantMap createProps_type()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::UnknownPropMembers::Type;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .readOnly()
+                        .asMap();
+                
+            }
+            
+            static QVariantMap createProps_length()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::UnknownPropMembers::Length;
+                return cc_plugin::field::createProps_propRemLen(Field::name());
+                
+            }
+            
+            static QVariantMap createProps_val()
+            {
+                using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::UnknownPropMembers::Val;
+                return
+                    cc::property::field::ForField<Field>()
+                        .name(Field::name())
+                        .asMap();
+                
+            }
+            
+        };
+        
+        static QVariantMap createProps_unknownProp()
+        {
+            using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::UnknownProp;
+            return
+                cc::property::field::ForField<Field>()
+                    .name(Field::name())
+                    .add(UnknownPropMembers::createProps_type())
+                    .add(UnknownPropMembers::createProps_length())
+                    .add(UnknownPropMembers::createProps_val())
+                    .asMap();
+            
+        }
+        
+    };
+    
+    static QVariantMap createProps_property()
+    {
+        using Field = demo1::message::VariantsFields<>::Props2Members::Property;
+        return
+            cc::property::field::ForField<Field>()
+                .name(Field::name())
+                .add(PropertyMembers::createProps_prop1())
+                .add(PropertyMembers::createProps_prop2())
+                .add(PropertyMembers::createProps_prop3())
+                .add(PropertyMembers::createProps_unknownProp())
+                .serialisedHidden()
+                .asMap();
+        
+    }
+    
+};
+
+static QVariantMap createProps_props2()
+{
+    using Field = demo1::message::VariantsFields<>::Props2;
+    return
+        cc::property::field::ForField<Field>()
+            .name(Field::name())
+            .add(Props2Members::createProps_property())
+            .serialisedHidden()
+            .prefixName("Length")
+            .showPrefix()
             .asMap();
     
 }
@@ -162,7 +386,8 @@ static QVariantMap createProps_properties()
 QVariantList createProps()
 {
     QVariantList props;
-    props.append(createProps_properties());
+    props.append(createProps_props1());
+    props.append(createProps_props2());
     return props;
 }
 

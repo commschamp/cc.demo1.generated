@@ -123,16 +123,16 @@ struct DefaultOptions
         /// @brief Extra options for fields of @ref demo1::message::Variants message.
         struct VariantsFields
         {
-            /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Properties string.
-            struct PropertiesMembers
+            /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props1 string.
+            struct Props1Members
             {
-                /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::PropertiesMembers::Property bitfield.
+                /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props1Members::Property bitfield.
                 struct PropertyMembers
                 {
-                    /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::PropertiesMembers::PropertyMembers::Prop3 bitfield.
+                    /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props1Members::PropertyMembers::Prop3 bitfield.
                     struct Prop3Members
                     {
-                        /// @brief Extra options for @ref demo1::message::VariantsFields::PropertiesMembers::PropertyMembers::Prop3Members::Val field.
+                        /// @brief Extra options for @ref demo1::message::VariantsFields::Props1Members::PropertyMembers::Prop3Members::Val field.
                         using Val = comms::option::EmptyOption;
                         
                     };
@@ -141,8 +141,37 @@ struct DefaultOptions
                 
             };
             
-            /// @brief Extra options for @ref demo1::message::VariantsFields::Properties field.
-            using Properties = comms::option::EmptyOption;
+            /// @brief Extra options for @ref demo1::message::VariantsFields::Props1 field.
+            using Props1 = comms::option::EmptyOption;
+            
+            /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props2 string.
+            struct Props2Members
+            {
+                /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props2Members::Property bitfield.
+                struct PropertyMembers
+                {
+                    /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::Prop3 bitfield.
+                    struct Prop3Members
+                    {
+                        /// @brief Extra options for @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::Prop3Members::Val field.
+                        using Val = comms::option::EmptyOption;
+                        
+                    };
+                    
+                    /// @brief Extra options for all the member fields of @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::UnknownProp bitfield.
+                    struct UnknownPropMembers
+                    {
+                        /// @brief Extra options for @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::UnknownPropMembers::Val field.
+                        using Val = comms::option::EmptyOption;
+                        
+                    };
+                    
+                };
+                
+            };
+            
+            /// @brief Extra options for @ref demo1::message::VariantsFields::Props2 field.
+            using Props2 = comms::option::EmptyOption;
             
         }; // struct VariantsFields
         
