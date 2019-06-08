@@ -6,8 +6,9 @@ function (cc_plugin_all_messages)
     set (name "${ALL_MESSAGES_LIB}")
     set (src
         field/Lat.cpp
-        field/MsgId.cpp
         field/Lon.cpp
+        field/MsgId.cpp
+        field/PropRemLen.cpp
         Message.cpp
         message/Ack.cpp
         message/Bitfields.cpp

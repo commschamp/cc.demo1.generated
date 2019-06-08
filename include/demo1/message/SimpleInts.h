@@ -142,7 +142,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint64_t,
-            comms::option::DefaultBigUnsignedNumValue<8U>
+            comms::option::DefaultNumValue<8>
         >
     {
         /// @brief Name of the field.
@@ -158,8 +158,8 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int32_t,
-            comms::option::DefaultNumValue<9>,
-            comms::option::VarLength<1U, 4U>
+            comms::option::VarLength<1U, 4U>,
+            comms::option::DefaultNumValue<9>
         >
     {
         /// @brief Name of the field.
@@ -177,8 +177,8 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<comms::option::LittleEndian>,
             std::uint32_t,
-            comms::option::DefaultBigUnsignedNumValue<10U>,
-            comms::option::VarLength<1U, 4U>
+            comms::option::VarLength<1U, 4U>,
+            comms::option::DefaultNumValue<10>
         >
     {
         /// @brief Name of the field.
