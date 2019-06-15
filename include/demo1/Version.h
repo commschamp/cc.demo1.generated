@@ -15,7 +15,7 @@
 #define DEMO1_MINOR_VERSION (7U)
 
 /// @brief Patch version of the protocol library.
-#define DEMO1_PATCH_VERSION (0U)
+#define DEMO1_PATCH_VERSION (1U)
 
 /// @brief Full version of the protocol library as single number.
 #define DEMO1_VERSION (COMMS_MAKE_VERSION(DEMO1_MAJOR_VERSION, DEMO1_MINOR_VERSION, DEMO1_PATCH_VERSION))
