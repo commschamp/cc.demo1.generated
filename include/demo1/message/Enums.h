@@ -46,7 +46,7 @@ struct EnumsFields
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
             F1Val,
-            comms::option::ValidNumValueRange<0, 2>
+            comms::option::def::ValidNumValueRange<0, 2>
         >
     {
         /// @brief Name of the field.
@@ -92,9 +92,9 @@ struct EnumsFields
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
             F2Val,
-            comms::option::DefaultNumValue<6>,
-            comms::option::ValidNumValue<-1>,
-            comms::option::ValidNumValueRange<5, 7>
+            comms::option::def::DefaultNumValue<6>,
+            comms::option::def::ValidNumValue<-1>,
+            comms::option::def::ValidNumValueRange<5, 7>
         >
     {
         /// @brief Name of the field.
@@ -146,10 +146,10 @@ struct EnumsFields
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
             F3Val,
-            comms::option::DefaultNumValue<66051L>,
-            comms::option::FixedLength<3U>,
-            comms::option::ValidNumValue<66051L>,
-            comms::option::ValidNumValue<263430L>
+            comms::option::def::DefaultNumValue<66051L>,
+            comms::option::def::FixedLength<3U>,
+            comms::option::def::ValidNumValue<66051L>,
+            comms::option::def::ValidNumValue<263430L>
         >
     {
         /// @brief Name of the field.
@@ -199,9 +199,9 @@ struct EnumsFields
         comms::field::EnumValue<
             demo1::field::FieldBase<>,
             F4Val,
-            comms::option::VarLength<1U, 2U>,
-            comms::option::ValidNumValue<0>,
-            comms::option::ValidNumValue<128>
+            comms::option::def::VarLength<1U, 2U>,
+            comms::option::def::ValidNumValue<0>,
+            comms::option::def::ValidNumValue<128>
         >
     {
         /// @brief Name of the field.
@@ -255,10 +255,10 @@ class Enums : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Enums,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Enums>,
-        comms::option::FieldsImpl<typename EnumsFields<TOpt>::All>,
-        comms::option::MsgType<Enums<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Enums>,
+        comms::option::def::FieldsImpl<typename EnumsFields<TOpt>::All>,
+        comms::option::def::MsgType<Enums<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -266,10 +266,10 @@ class Enums : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Enums,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Enums>,
-            comms::option::FieldsImpl<typename EnumsFields<TOpt>::All>,
-            comms::option::MsgType<Enums<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Enums>,
+            comms::option::def::FieldsImpl<typename EnumsFields<TOpt>::All>,
+            comms::option::def::MsgType<Enums<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

@@ -55,7 +55,7 @@ struct FrameLayers
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::NumValueSerOffset<2>
+                comms::option::def::NumValueSerOffset<2>
             >
         {
             /// @brief Name of the field.
@@ -113,9 +113,9 @@ struct FrameLayers
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::FailOnInvalid<comms::ErrorStatus::ProtocolError>,
-                comms::option::DefaultNumValue<43981L>,
-                comms::option::ValidNumValue<43981L>
+                comms::option::def::FailOnInvalid<comms::ErrorStatus::ProtocolError>,
+                comms::option::def::DefaultNumValue<43981L>,
+                comms::option::def::ValidNumValue<43981L>
             >
         {
             /// @brief Name of the field.

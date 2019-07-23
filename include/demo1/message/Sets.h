@@ -31,15 +31,15 @@ struct SetsFields
     class F1 : public
         comms::field::BitmaskValue<
             demo1::field::FieldBase<>,
-            comms::option::FixedLength<1U>,
-            comms::option::BitmaskReservedBits<0xF8U, 0x0U>
+            comms::option::def::FixedLength<1U>,
+            comms::option::def::BitmaskReservedBits<0xF8U, 0x0U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 demo1::field::FieldBase<>,
-                comms::option::FixedLength<1U>,
-                comms::option::BitmaskReservedBits<0xF8U, 0x0U>
+                comms::option::def::FixedLength<1U>,
+                comms::option::def::BitmaskReservedBits<0xF8U, 0x0U>
             >;
     public:
         /// @brief Provides names and generates access functions for internal bits.
@@ -90,17 +90,17 @@ struct SetsFields
     class F2 : public
         comms::field::BitmaskValue<
             demo1::field::FieldBase<>,
-            comms::option::FixedLength<2U>,
-            comms::option::DefaultNumValue<0x8000U>,
-            comms::option::BitmaskReservedBits<0x7FFEU, 0x0U>
+            comms::option::def::FixedLength<2U>,
+            comms::option::def::DefaultNumValue<0x8000U>,
+            comms::option::def::BitmaskReservedBits<0x7FFEU, 0x0U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 demo1::field::FieldBase<>,
-                comms::option::FixedLength<2U>,
-                comms::option::DefaultNumValue<0x8000U>,
-                comms::option::BitmaskReservedBits<0x7FFEU, 0x0U>
+                comms::option::def::FixedLength<2U>,
+                comms::option::def::DefaultNumValue<0x8000U>,
+                comms::option::def::BitmaskReservedBits<0x7FFEU, 0x0U>
             >;
     public:
         /// @brief Provide names for internal bits.
@@ -175,15 +175,15 @@ struct SetsFields
     class F3 : public
         comms::field::BitmaskValue<
             demo1::field::FieldBase<>,
-            comms::option::FixedLength<3U>,
-            comms::option::BitmaskReservedBits<0xFFFFFAUL, 0x0U>
+            comms::option::def::FixedLength<3U>,
+            comms::option::def::BitmaskReservedBits<0xFFFFFAUL, 0x0U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 demo1::field::FieldBase<>,
-                comms::option::FixedLength<3U>,
-                comms::option::BitmaskReservedBits<0xFFFFFAUL, 0x0U>
+                comms::option::def::FixedLength<3U>,
+                comms::option::def::BitmaskReservedBits<0xFFFFFAUL, 0x0U>
             >;
     public:
         /// @brief Provide names for internal bits.
@@ -258,10 +258,10 @@ class Sets : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Sets,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Sets>,
-        comms::option::FieldsImpl<typename SetsFields<TOpt>::All>,
-        comms::option::MsgType<Sets<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Sets>,
+        comms::option::def::FieldsImpl<typename SetsFields<TOpt>::All>,
+        comms::option::def::MsgType<Sets<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -269,10 +269,10 @@ class Sets : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Sets,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Sets>,
-            comms::option::FieldsImpl<typename SetsFields<TOpt>::All>,
-            comms::option::MsgType<Sets<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Sets>,
+            comms::option::def::FieldsImpl<typename SetsFields<TOpt>::All>,
+            comms::option::def::MsgType<Sets<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

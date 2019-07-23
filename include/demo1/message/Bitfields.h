@@ -37,7 +37,7 @@ struct BitfieldsFields
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint8_t,
-                comms::option::FixedBitLength<3U>
+                comms::option::def::FixedBitLength<3U>
             >
         {
             /// @brief Name of the field.
@@ -52,13 +52,13 @@ struct BitfieldsFields
         class Mem2 : public
             comms::field::BitmaskValue<
                 demo1::field::FieldBase<>,
-                comms::option::FixedBitLength<3U>
+                comms::option::def::FixedBitLength<3U>
             >
         {
             using Base = 
                 comms::field::BitmaskValue<
                     demo1::field::FieldBase<>,
-                    comms::option::FixedBitLength<3U>
+                    comms::option::def::FixedBitLength<3U>
                 >;
         public:
             /// @brief Provides names and generates access functions for internal bits.
@@ -117,9 +117,9 @@ struct BitfieldsFields
             comms::field::EnumValue<
                 demo1::field::FieldBase<>,
                 Mem3Val,
-                comms::option::FixedBitLength<2U>,
-                comms::option::ValidNumValue<0>,
-                comms::option::ValidNumValue<3>
+                comms::option::def::FixedBitLength<2U>,
+                comms::option::def::ValidNumValue<0>,
+                comms::option::def::ValidNumValue<3>
             >
         {
             /// @brief Name of the field.
@@ -210,10 +210,10 @@ class Bitfields : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Bitfields,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Bitfields>,
-        comms::option::FieldsImpl<typename BitfieldsFields<TOpt>::All>,
-        comms::option::MsgType<Bitfields<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Bitfields>,
+        comms::option::def::FieldsImpl<typename BitfieldsFields<TOpt>::All>,
+        comms::option::def::MsgType<Bitfields<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -221,10 +221,10 @@ class Bitfields : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Bitfields,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Bitfields>,
-            comms::option::FieldsImpl<typename BitfieldsFields<TOpt>::All>,
-            comms::option::MsgType<Bitfields<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Bitfields>,
+            comms::option::def::FieldsImpl<typename BitfieldsFields<TOpt>::All>,
+            comms::option::def::MsgType<Bitfields<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

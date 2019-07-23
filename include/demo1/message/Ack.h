@@ -47,10 +47,10 @@ class Ack : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Ack,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Ack>,
-        comms::option::FieldsImpl<typename AckFields<TOpt>::All>,
-        comms::option::MsgType<Ack<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Ack>,
+        comms::option::def::FieldsImpl<typename AckFields<TOpt>::All>,
+        comms::option::def::MsgType<Ack<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Ack : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Ack,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Ack>,
-            comms::option::FieldsImpl<typename AckFields<TOpt>::All>,
-            comms::option::MsgType<Ack<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Ack>,
+            comms::option::def::FieldsImpl<typename AckFields<TOpt>::All>,
+            comms::option::def::MsgType<Ack<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

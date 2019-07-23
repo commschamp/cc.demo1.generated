@@ -51,7 +51,7 @@ struct DatasFields
             demo1::field::FieldBase<>,
             std::uint8_t,
             typename TOpt::message::DatasFields::F1,
-            comms::option::SequenceFixedSize<5U>
+            comms::option::def::SequenceFixedSize<5U>
         >
     {
         /// @brief Name of the field.
@@ -90,7 +90,7 @@ struct DatasFields
             demo1::field::FieldBase<>,
             std::uint8_t,
             typename TOpt::message::DatasFields::F2,
-            comms::option::SequenceSerLengthFieldPrefix<typename F2Members::Length>
+            comms::option::def::SequenceSerLengthFieldPrefix<typename F2Members::Length>
         >
     {
         using Base = 
@@ -98,7 +98,7 @@ struct DatasFields
                 demo1::field::FieldBase<>,
                 std::uint8_t,
                 typename TOpt::message::DatasFields::F2,
-                comms::option::SequenceSerLengthFieldPrefix<typename F2Members::Length>
+                comms::option::def::SequenceSerLengthFieldPrefix<typename F2Members::Length>
             >;
     public:
         /// @brief Default constructor
@@ -126,7 +126,7 @@ struct DatasFields
             demo1::field::FieldBase<>,
             std::uint8_t,
             typename TOpt::message::DatasFields::F3,
-            comms::option::SequenceLengthForcingEnabled
+            comms::option::def::SequenceLengthForcingEnabled
         >
     {
         /// @brief Name of the field.
@@ -176,11 +176,11 @@ class Datas : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Datas,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Datas>,
-        comms::option::FieldsImpl<typename DatasFields<TOpt>::All>,
-        comms::option::MsgType<Datas<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Datas>,
+        comms::option::def::FieldsImpl<typename DatasFields<TOpt>::All>,
+        comms::option::def::MsgType<Datas<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -188,11 +188,11 @@ class Datas : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Datas,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Datas>,
-            comms::option::FieldsImpl<typename DatasFields<TOpt>::All>,
-            comms::option::MsgType<Datas<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Datas>,
+            comms::option::def::FieldsImpl<typename DatasFields<TOpt>::All>,
+            comms::option::def::MsgType<Datas<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:

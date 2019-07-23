@@ -44,9 +44,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<1>,
-                        comms::option::ValidNumValue<1>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<1>,
+                        comms::option::def::ValidNumValue<1>
                     >
                 {
                     /// @brief Name of the field.
@@ -122,9 +122,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<2>,
-                        comms::option::ValidNumValue<2>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<2>,
+                        comms::option::def::ValidNumValue<2>
                     >
                 {
                     /// @brief Name of the field.
@@ -200,9 +200,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<3>,
-                        comms::option::ValidNumValue<3>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<3>,
+                        comms::option::def::ValidNumValue<3>
                     >
                 {
                     /// @brief Name of the field.
@@ -238,7 +238,7 @@ struct VariantsFields
                     comms::field::String<
                         demo1::field::FieldBase<>,
                         typename TOpt::message::VariantsFields::Props1Members::PropertyMembers::Prop3Members::Val,
-                        comms::option::SequenceSerLengthFieldPrefix<typename ValMembers::Length>
+                        comms::option::def::SequenceSerLengthFieldPrefix<typename ValMembers::Length>
                     >
                 {
                     /// @brief Name of the field.
@@ -305,14 +305,14 @@ struct VariantsFields
             comms::field::Variant<
                 demo1::field::FieldBase<>,
                 typename PropertyMembers::All,
-                comms::option::HasCustomRead
+                comms::option::def::HasCustomRead
             >
         {
             using Base = 
                 comms::field::Variant<
                     demo1::field::FieldBase<>,
                     typename PropertyMembers::All,
-                    comms::option::HasCustomRead
+                    comms::option::def::HasCustomRead
                 >;
         public:
             /// @brief Allow access to internal fields.
@@ -346,6 +346,7 @@ struct VariantsFields
                         std::uint8_t
                     >;
                 CommonKeyField commonKeyField;
+            
                 auto origIter = iter;
                 auto es = commonKeyField.read(iter, len);
                 if (es != comms::ErrorStatus::Success) {
@@ -381,6 +382,60 @@ struct VariantsFields
                 return comms::ErrorStatus::InvalidMsgData;
             }
             
+            /// @brief Optimized currFieldExec functionality.
+            /// @details Replaces the currFieldExec() member function defined
+            ///    by @b comms::field::Variant.
+            template <typename TFunc>
+            void currFieldExec(TFunc&& func) 
+            {
+                switch (Base::currentField()) {
+                case FieldIdx_prop1:
+                    memFieldDispatch<FieldIdx_prop1>(accessField_prop1(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop2:
+                    memFieldDispatch<FieldIdx_prop2>(accessField_prop2(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop3:
+                    memFieldDispatch<FieldIdx_prop3>(accessField_prop3(), std::forward<TFunc>(func));
+                    break;
+                default:
+                    COMMS_ASSERT(!"Invalid field execution");
+                    break;
+                }
+            }
+            
+            /// @brief Optimized currFieldExec functionality (const variant).
+            /// @details Replaces the currFieldExec() member function defined
+            ///    by @b comms::field::Variant.
+            template <typename TFunc>
+            void currFieldExec(TFunc&& func) const
+            {
+                switch (Base::currentField()) {
+                case FieldIdx_prop1:
+                    memFieldDispatch<FieldIdx_prop1>(accessField_prop1(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop2:
+                    memFieldDispatch<FieldIdx_prop2>(accessField_prop2(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop3:
+                    memFieldDispatch<FieldIdx_prop3>(accessField_prop3(), std::forward<TFunc>(func));
+                    break;
+                default:
+                    COMMS_ASSERT(!"Invalid field execution");
+                    break;
+                }
+            }
+            
+        private:
+            template <std::size_t TIdx, typename TField, typename TFunc>
+            static void memFieldDispatch(TField&& f, TFunc&& func)
+            {
+                #ifdef _MSC_VER
+                    func.operator()<TIdx>(std::forward<TField>(f)); // VS compiler
+                #else // #ifdef _MSC_VER
+                    func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
+                #endif // #ifdef _MSC_VER
+            }
         };
         
         /// @brief Definition of <b>"Count"</b> field.
@@ -406,7 +461,7 @@ struct VariantsFields
             demo1::field::FieldBase<>,
             typename Props1Members::Property,
             typename TOpt::message::VariantsFields::Props1,
-            comms::option::SequenceSizeFieldPrefix<typename Props1Members::Count>
+            comms::option::def::SequenceSizeFieldPrefix<typename Props1Members::Count>
         >
     {
         /// @brief Name of the field.
@@ -431,9 +486,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<1>,
-                        comms::option::ValidNumValue<1>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<1>,
+                        comms::option::def::ValidNumValue<1>
                     >
                 {
                     /// @brief Name of the field.
@@ -479,14 +534,14 @@ struct VariantsFields
                 comms::field::Bundle<
                     demo1::field::FieldBase<>,
                     typename Prop1Members::All,
-                    comms::option::RemLengthMemberField<1U>
+                    comms::option::def::RemLengthMemberField<1U>
                 >
             {
                 using Base = 
                     comms::field::Bundle<
                         demo1::field::FieldBase<>,
                         typename Prop1Members::All,
-                        comms::option::RemLengthMemberField<1U>
+                        comms::option::def::RemLengthMemberField<1U>
                     >;
             public:
                 /// @brief Allow access to internal fields.
@@ -520,9 +575,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<2>,
-                        comms::option::ValidNumValue<2>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<2>,
+                        comms::option::def::ValidNumValue<2>
                     >
                 {
                     /// @brief Name of the field.
@@ -568,14 +623,14 @@ struct VariantsFields
                 comms::field::Bundle<
                     demo1::field::FieldBase<>,
                     typename Prop2Members::All,
-                    comms::option::RemLengthMemberField<1U>
+                    comms::option::def::RemLengthMemberField<1U>
                 >
             {
                 using Base = 
                     comms::field::Bundle<
                         demo1::field::FieldBase<>,
                         typename Prop2Members::All,
-                        comms::option::RemLengthMemberField<1U>
+                        comms::option::def::RemLengthMemberField<1U>
                     >;
             public:
                 /// @brief Allow access to internal fields.
@@ -609,9 +664,9 @@ struct VariantsFields
                     comms::field::IntValue<
                         demo1::field::FieldBase<>,
                         std::uint8_t,
-                        comms::option::FailOnInvalid<>,
-                        comms::option::DefaultNumValue<3>,
-                        comms::option::ValidNumValue<3>
+                        comms::option::def::FailOnInvalid<>,
+                        comms::option::def::DefaultNumValue<3>,
+                        comms::option::def::ValidNumValue<3>
                     >
                 {
                     /// @brief Name of the field.
@@ -657,14 +712,14 @@ struct VariantsFields
                 comms::field::Bundle<
                     demo1::field::FieldBase<>,
                     typename Prop3Members::All,
-                    comms::option::RemLengthMemberField<1U>
+                    comms::option::def::RemLengthMemberField<1U>
                 >
             {
                 using Base = 
                     comms::field::Bundle<
                         demo1::field::FieldBase<>,
                         typename Prop3Members::All,
-                        comms::option::RemLengthMemberField<1U>
+                        comms::option::def::RemLengthMemberField<1U>
                     >;
             public:
                 /// @brief Allow access to internal fields.
@@ -744,14 +799,14 @@ struct VariantsFields
                 comms::field::Bundle<
                     demo1::field::FieldBase<>,
                     typename UnknownPropMembers::All,
-                    comms::option::RemLengthMemberField<1U>
+                    comms::option::def::RemLengthMemberField<1U>
                 >
             {
                 using Base = 
                     comms::field::Bundle<
                         demo1::field::FieldBase<>,
                         typename UnknownPropMembers::All,
-                        comms::option::RemLengthMemberField<1U>
+                        comms::option::def::RemLengthMemberField<1U>
                     >;
             public:
                 /// @brief Allow access to internal fields.
@@ -792,14 +847,14 @@ struct VariantsFields
             comms::field::Variant<
                 demo1::field::FieldBase<>,
                 typename PropertyMembers::All,
-                comms::option::HasCustomRead
+                comms::option::def::HasCustomRead
             >
         {
             using Base = 
                 comms::field::Variant<
                     demo1::field::FieldBase<>,
                     typename PropertyMembers::All,
-                    comms::option::HasCustomRead
+                    comms::option::def::HasCustomRead
                 >;
         public:
             /// @brief Allow access to internal fields.
@@ -835,6 +890,7 @@ struct VariantsFields
                         std::uint8_t
                     >;
                 CommonKeyField commonKeyField;
+            
                 auto origIter = iter;
                 auto es = commonKeyField.read(iter, len);
                 if (es != comms::ErrorStatus::Success) {
@@ -871,6 +927,66 @@ struct VariantsFields
                 return comms::ErrorStatus::InvalidMsgData;
             }
             
+            /// @brief Optimized currFieldExec functionality.
+            /// @details Replaces the currFieldExec() member function defined
+            ///    by @b comms::field::Variant.
+            template <typename TFunc>
+            void currFieldExec(TFunc&& func) 
+            {
+                switch (Base::currentField()) {
+                case FieldIdx_prop1:
+                    memFieldDispatch<FieldIdx_prop1>(accessField_prop1(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop2:
+                    memFieldDispatch<FieldIdx_prop2>(accessField_prop2(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop3:
+                    memFieldDispatch<FieldIdx_prop3>(accessField_prop3(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_unknownProp:
+                    memFieldDispatch<FieldIdx_unknownProp>(accessField_unknownProp(), std::forward<TFunc>(func));
+                    break;
+                default:
+                    COMMS_ASSERT(!"Invalid field execution");
+                    break;
+                }
+            }
+            
+            /// @brief Optimized currFieldExec functionality (const variant).
+            /// @details Replaces the currFieldExec() member function defined
+            ///    by @b comms::field::Variant.
+            template <typename TFunc>
+            void currFieldExec(TFunc&& func) const
+            {
+                switch (Base::currentField()) {
+                case FieldIdx_prop1:
+                    memFieldDispatch<FieldIdx_prop1>(accessField_prop1(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop2:
+                    memFieldDispatch<FieldIdx_prop2>(accessField_prop2(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_prop3:
+                    memFieldDispatch<FieldIdx_prop3>(accessField_prop3(), std::forward<TFunc>(func));
+                    break;
+                case FieldIdx_unknownProp:
+                    memFieldDispatch<FieldIdx_unknownProp>(accessField_unknownProp(), std::forward<TFunc>(func));
+                    break;
+                default:
+                    COMMS_ASSERT(!"Invalid field execution");
+                    break;
+                }
+            }
+            
+        private:
+            template <std::size_t TIdx, typename TField, typename TFunc>
+            static void memFieldDispatch(TField&& f, TFunc&& func)
+            {
+                #ifdef _MSC_VER
+                    func.operator()<TIdx>(std::forward<TField>(f)); // VS compiler
+                #else // #ifdef _MSC_VER
+                    func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
+                #endif // #ifdef _MSC_VER
+            }
         };
         
         /// @brief Definition of <b>"Length"</b> field.
@@ -896,7 +1012,7 @@ struct VariantsFields
             demo1::field::FieldBase<>,
             typename Props2Members::Property,
             typename TOpt::message::VariantsFields::Props2,
-            comms::option::SequenceSerLengthFieldPrefix<typename Props2Members::Length>
+            comms::option::def::SequenceSerLengthFieldPrefix<typename Props2Members::Length>
         >
     {
         /// @brief Name of the field.
@@ -928,10 +1044,10 @@ class Variants : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Variants,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Variants>,
-        comms::option::FieldsImpl<typename VariantsFields<TOpt>::All>,
-        comms::option::MsgType<Variants<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Variants>,
+        comms::option::def::FieldsImpl<typename VariantsFields<TOpt>::All>,
+        comms::option::def::MsgType<Variants<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -939,10 +1055,10 @@ class Variants : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Variants,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Variants>,
-            comms::option::FieldsImpl<typename VariantsFields<TOpt>::All>,
-            comms::option::MsgType<Variants<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Variants>,
+            comms::option::def::FieldsImpl<typename VariantsFields<TOpt>::All>,
+            comms::option::def::MsgType<Variants<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

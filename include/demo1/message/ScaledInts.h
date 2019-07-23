@@ -46,7 +46,7 @@ struct ScaledIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int32_t,
-            comms::option::UnitsMillimeters
+            comms::option::def::UnitsMillimeters
         >
     {
         /// @brief Name of the field.
@@ -64,7 +64,7 @@ struct ScaledIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint32_t,
-            comms::option::ScalingRatio<1, 100>
+            comms::option::def::ScalingRatio<1, 100>
         >
     {
         /// @brief Name of the field.
@@ -95,10 +95,10 @@ class ScaledInts : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::ScaledInts,
-        comms::option::StaticNumIdImpl<demo1::MsgId_ScaledInts>,
-        comms::option::FieldsImpl<typename ScaledIntsFields<TOpt>::All>,
-        comms::option::MsgType<ScaledInts<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_ScaledInts>,
+        comms::option::def::FieldsImpl<typename ScaledIntsFields<TOpt>::All>,
+        comms::option::def::MsgType<ScaledInts<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -106,10 +106,10 @@ class ScaledInts : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::ScaledInts,
-            comms::option::StaticNumIdImpl<demo1::MsgId_ScaledInts>,
-            comms::option::FieldsImpl<typename ScaledIntsFields<TOpt>::All>,
-            comms::option::MsgType<ScaledInts<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_ScaledInts>,
+            comms::option::def::FieldsImpl<typename ScaledIntsFields<TOpt>::All>,
+            comms::option::def::MsgType<ScaledInts<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:
