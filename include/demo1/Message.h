@@ -17,8 +17,8 @@ template <typename... TOpt>
 using Message =
     comms::Message<
         TOpt...,
-        comms::option::BigEndian,
-        comms::option::MsgIdType<demo1::MsgId>
+        comms::option::def::BigEndian,
+        comms::option::def::MsgIdType<demo1::MsgId>
     >;
 
 } // namespace demo1

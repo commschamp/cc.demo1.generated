@@ -50,7 +50,7 @@ struct StringsFields
         comms::field::String<
             demo1::field::FieldBase<>,
             typename TOpt::message::StringsFields::F1,
-            comms::option::SequenceFixedSize<5U>
+            comms::option::def::SequenceFixedSize<5U>
         >
     {
         /// @brief Name of the field.
@@ -88,14 +88,14 @@ struct StringsFields
         comms::field::String<
             demo1::field::FieldBase<>,
             typename TOpt::message::StringsFields::F2,
-            comms::option::SequenceSerLengthFieldPrefix<typename F2Members::Length>
+            comms::option::def::SequenceSerLengthFieldPrefix<typename F2Members::Length>
         >
     {
         using Base = 
             comms::field::String<
                 demo1::field::FieldBase<>,
                 typename TOpt::message::StringsFields::F2,
-                comms::option::SequenceSerLengthFieldPrefix<typename F2Members::Length>
+                comms::option::def::SequenceSerLengthFieldPrefix<typename F2Members::Length>
             >;
     public:
         /// @brief Default constructor
@@ -121,11 +121,11 @@ struct StringsFields
         comms::field::String<
             demo1::field::FieldBase<>,
             typename TOpt::message::StringsFields::F3,
-            comms::option::SequenceTerminationFieldSuffix<
+            comms::option::def::SequenceTerminationFieldSuffix<
                 comms::field::IntValue<
                     demo1::field::FieldBase<>,
                     std::uint8_t,
-                    comms::option::ValidNumValueRange<0, 0>
+                    comms::option::def::ValidNumValueRange<0, 0>
                 >
             >
         >
@@ -145,7 +145,7 @@ struct StringsFields
         comms::field::String<
             demo1::field::FieldBase<>,
             typename TOpt::message::StringsFields::F4,
-            comms::option::SequenceLengthForcingEnabled
+            comms::option::def::SequenceLengthForcingEnabled
         >
     {
         /// @brief Name of the field.
@@ -195,11 +195,11 @@ class Strings : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Strings,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Strings>,
-        comms::option::FieldsImpl<typename StringsFields<TOpt>::All>,
-        comms::option::MsgType<Strings<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Strings>,
+        comms::option::def::FieldsImpl<typename StringsFields<TOpt>::All>,
+        comms::option::def::MsgType<Strings<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -207,11 +207,11 @@ class Strings : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Strings,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Strings>,
-            comms::option::FieldsImpl<typename StringsFields<TOpt>::All>,
-            comms::option::MsgType<Strings<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Strings>,
+            comms::option::def::FieldsImpl<typename StringsFields<TOpt>::All>,
+            comms::option::def::MsgType<Strings<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:

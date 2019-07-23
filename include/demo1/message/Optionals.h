@@ -34,15 +34,15 @@ struct OptionalsFields
     class Flags : public
         comms::field::BitmaskValue<
             demo1::field::FieldBase<>,
-            comms::option::FixedLength<1U>,
-            comms::option::BitmaskReservedBits<0xFCU, 0x0U>
+            comms::option::def::FixedLength<1U>,
+            comms::option::def::BitmaskReservedBits<0xFCU, 0x0U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 demo1::field::FieldBase<>,
-                comms::option::FixedLength<1U>,
-                comms::option::BitmaskReservedBits<0xFCU, 0x0U>
+                comms::option::def::FixedLength<1U>,
+                comms::option::def::BitmaskReservedBits<0xFCU, 0x0U>
             >;
     public:
         /// @brief Provides names and generates access functions for internal bits.
@@ -92,7 +92,7 @@ struct OptionalsFields
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::DefaultNumValue<4369>
+                comms::option::def::DefaultNumValue<4369>
             >
         {
             /// @brief Name of the field.
@@ -109,7 +109,7 @@ struct OptionalsFields
     struct F2 : public
         comms::field::Optional<
             typename F2Members::F2,
-            comms::option::MissingByDefault
+            comms::option::def::MissingByDefault
         >
     {
         /// @brief Name of the field.
@@ -128,7 +128,7 @@ struct OptionalsFields
             comms::field::IntValue<
                 demo1::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::DefaultNumValue<8738>
+                comms::option::def::DefaultNumValue<8738>
             >
         {
             /// @brief Name of the field.
@@ -145,7 +145,7 @@ struct OptionalsFields
     struct F3 : public
         comms::field::Optional<
             typename F3Members::F3,
-            comms::option::ExistsByDefault
+            comms::option::def::ExistsByDefault
         >
     {
         /// @brief Name of the field.
@@ -175,11 +175,11 @@ class Optionals : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Optionals,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Optionals>,
-        comms::option::FieldsImpl<typename OptionalsFields<TOpt>::All>,
-        comms::option::MsgType<Optionals<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Optionals>,
+        comms::option::def::FieldsImpl<typename OptionalsFields<TOpt>::All>,
+        comms::option::def::MsgType<Optionals<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -187,11 +187,11 @@ class Optionals : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Optionals,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Optionals>,
-            comms::option::FieldsImpl<typename OptionalsFields<TOpt>::All>,
-            comms::option::MsgType<Optionals<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Optionals>,
+            comms::option::def::FieldsImpl<typename OptionalsFields<TOpt>::All>,
+            comms::option::def::MsgType<Optionals<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:

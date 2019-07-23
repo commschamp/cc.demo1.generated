@@ -31,14 +31,14 @@ struct FloatsFields
         comms::field::FloatValue<
             demo1::field::FieldBase<>,
             float,
-            comms::option::UnitsSeconds
+            comms::option::def::UnitsSeconds
         >
     {
         using Base = 
             comms::field::FloatValue<
                 demo1::field::FieldBase<>,
                 float,
-                comms::option::UnitsSeconds
+                comms::option::def::UnitsSeconds
             >;
     public:
         /// @brief Special value <b>"Infinite"</b>.
@@ -90,14 +90,14 @@ struct FloatsFields
         comms::field::FloatValue<
             demo1::field::FieldBase<>,
             float,
-            comms::option::UnitsMeters
+            comms::option::def::UnitsMeters
         >
     {
         using Base = 
             comms::field::FloatValue<
                 demo1::field::FieldBase<>,
                 float,
-                comms::option::UnitsMeters
+                comms::option::def::UnitsMeters
             >;
     public:
         /// @brief Default constructor.
@@ -169,10 +169,10 @@ class Floats : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Floats,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Floats>,
-        comms::option::FieldsImpl<typename FloatsFields<TOpt>::All>,
-        comms::option::MsgType<Floats<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Floats>,
+        comms::option::def::FieldsImpl<typename FloatsFields<TOpt>::All>,
+        comms::option::def::MsgType<Floats<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -180,10 +180,10 @@ class Floats : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Floats,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Floats>,
-            comms::option::FieldsImpl<typename FloatsFields<TOpt>::All>,
-            comms::option::MsgType<Floats<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Floats>,
+            comms::option::def::FieldsImpl<typename FloatsFields<TOpt>::All>,
+            comms::option::def::MsgType<Floats<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

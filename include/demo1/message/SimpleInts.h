@@ -30,7 +30,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int8_t,
-            comms::option::DefaultNumValue<1>
+            comms::option::def::DefaultNumValue<1>
         >
     {
         /// @brief Name of the field.
@@ -46,7 +46,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint8_t,
-            comms::option::DefaultNumValue<2>
+            comms::option::def::DefaultNumValue<2>
         >
     {
         /// @brief Name of the field.
@@ -62,7 +62,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int16_t,
-            comms::option::DefaultNumValue<3>
+            comms::option::def::DefaultNumValue<3>
         >
     {
         /// @brief Name of the field.
@@ -78,7 +78,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint16_t,
-            comms::option::DefaultNumValue<4>
+            comms::option::def::DefaultNumValue<4>
         >
     {
         /// @brief Name of the field.
@@ -94,7 +94,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int32_t,
-            comms::option::DefaultNumValue<5>
+            comms::option::def::DefaultNumValue<5>
         >
     {
         /// @brief Name of the field.
@@ -110,7 +110,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint32_t,
-            comms::option::DefaultNumValue<6>
+            comms::option::def::DefaultNumValue<6>
         >
     {
         /// @brief Name of the field.
@@ -126,7 +126,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int64_t,
-            comms::option::DefaultNumValue<7>
+            comms::option::def::DefaultNumValue<7>
         >
     {
         /// @brief Name of the field.
@@ -142,7 +142,7 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::uint64_t,
-            comms::option::DefaultNumValue<8>
+            comms::option::def::DefaultNumValue<8>
         >
     {
         /// @brief Name of the field.
@@ -158,8 +158,8 @@ struct SimpleIntsFields
         comms::field::IntValue<
             demo1::field::FieldBase<>,
             std::int32_t,
-            comms::option::VarLength<1U, 4U>,
-            comms::option::DefaultNumValue<9>
+            comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::DefaultNumValue<9>
         >
     {
         /// @brief Name of the field.
@@ -175,10 +175,10 @@ struct SimpleIntsFields
     ///     Using little endian (LEB-128) to encode this field.
     struct F10 : public
         comms::field::IntValue<
-            demo1::field::FieldBase<comms::option::LittleEndian>,
+            demo1::field::FieldBase<comms::option::def::LittleEndian>,
             std::uint32_t,
-            comms::option::VarLength<1U, 4U>,
-            comms::option::DefaultNumValue<10>
+            comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::DefaultNumValue<10>
         >
     {
         /// @brief Name of the field.
@@ -215,10 +215,10 @@ class SimpleInts : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::SimpleInts,
-        comms::option::StaticNumIdImpl<demo1::MsgId_SimpleInts>,
-        comms::option::FieldsImpl<typename SimpleIntsFields<TOpt>::All>,
-        comms::option::MsgType<SimpleInts<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_SimpleInts>,
+        comms::option::def::FieldsImpl<typename SimpleIntsFields<TOpt>::All>,
+        comms::option::def::MsgType<SimpleInts<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -226,10 +226,10 @@ class SimpleInts : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::SimpleInts,
-            comms::option::StaticNumIdImpl<demo1::MsgId_SimpleInts>,
-            comms::option::FieldsImpl<typename SimpleIntsFields<TOpt>::All>,
-            comms::option::MsgType<SimpleInts<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_SimpleInts>,
+            comms::option::def::FieldsImpl<typename SimpleIntsFields<TOpt>::All>,
+            comms::option::def::MsgType<SimpleInts<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

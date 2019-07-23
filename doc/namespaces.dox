@@ -22,3 +22,6 @@
 /// @namespace demo1::input
 /// @brief Main namespace for hold input messages bundles.
 
+/// @namespace demo1::dispatch
+/// @brief Main namespace for the various message dispatch functions.
+

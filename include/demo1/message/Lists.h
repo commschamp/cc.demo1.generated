@@ -71,7 +71,7 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F1Members::Elem,
             typename TOpt::message::ListsFields::F1,
-            comms::option::SequenceFixedSize<5U>
+            comms::option::def::SequenceFixedSize<5U>
         >
     {
         /// @brief Name of the field.
@@ -110,7 +110,7 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F2Members::Elem,
             typename TOpt::message::ListsFields::F2,
-            comms::option::SequenceSizeForcingEnabled
+            comms::option::def::SequenceSizeForcingEnabled
         >
     {
         /// @brief Name of the field.
@@ -224,7 +224,7 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F3Members::Element,
             typename TOpt::message::ListsFields::F3,
-            comms::option::SequenceSizeFieldPrefix<typename F3Members::Count>
+            comms::option::def::SequenceSizeFieldPrefix<typename F3Members::Count>
         >
     {
         /// @brief Name of the field.
@@ -354,8 +354,8 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F4Members::Element,
             typename TOpt::message::ListsFields::F4,
-            comms::option::SequenceSerLengthFieldPrefix<typename F4Members::Length>,
-            comms::option::SequenceElemSerLengthFieldPrefix<typename F4Members::ElemLength>
+            comms::option::def::SequenceSerLengthFieldPrefix<typename F4Members::Length>,
+            comms::option::def::SequenceElemSerLengthFieldPrefix<typename F4Members::ElemLength>
         >
     {
         /// @brief Name of the field.
@@ -486,8 +486,8 @@ struct ListsFields
             demo1::field::FieldBase<>,
             typename F5Members::Element,
             typename TOpt::message::ListsFields::F5,
-            comms::option::SequenceSizeFieldPrefix<typename F5Members::Count>,
-            comms::option::SequenceElemFixedSerLengthFieldPrefix<typename F5Members::ElemLength>
+            comms::option::def::SequenceSizeFieldPrefix<typename F5Members::Count>,
+            comms::option::def::SequenceElemFixedSerLengthFieldPrefix<typename F5Members::ElemLength>
         >
     {
         /// @brief Name of the field.
@@ -520,11 +520,11 @@ class Lists : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Lists,
-        comms::option::StaticNumIdImpl<demo1::MsgId_Lists>,
-        comms::option::FieldsImpl<typename ListsFields<TOpt>::All>,
-        comms::option::MsgType<Lists<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<demo1::MsgId_Lists>,
+        comms::option::def::FieldsImpl<typename ListsFields<TOpt>::All>,
+        comms::option::def::MsgType<Lists<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -532,11 +532,11 @@ class Lists : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Lists,
-            comms::option::StaticNumIdImpl<demo1::MsgId_Lists>,
-            comms::option::FieldsImpl<typename ListsFields<TOpt>::All>,
-            comms::option::MsgType<Lists<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<demo1::MsgId_Lists>,
+            comms::option::def::FieldsImpl<typename ListsFields<TOpt>::All>,
+            comms::option::def::MsgType<Lists<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:
