@@ -1,5 +1,6 @@
 #include "Demo1Protocol.h"
 
+#include <cassert>
 #include "comms_champion/ProtocolBase.h"
 #include "cc_plugin/frame/Frame.h"
 #include "cc_plugin/frame/FrameTransportMessage.h"
@@ -42,6 +43,7 @@ protected:
     using Base::createInvalidMessageImpl;
     using Base::createRawDataMessageImpl;
     using Base::createExtraInfoMessageImpl;
+
 };
 
 Demo1Protocol::Demo1Protocol()
