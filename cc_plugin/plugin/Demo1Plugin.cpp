@@ -14,13 +14,15 @@ namespace plugin
 {
 
 Demo1Plugin::Demo1Plugin()
+  : m_protocol(new Demo1Protocol())
 {
     pluginProperties()
         .setProtocolCreateFunc(
-            []() -> cc::ProtocolPtr
+            [this]() -> cc::ProtocolPtr
             {
-                return cc::ProtocolPtr(new Demo1Protocol());
-            });
+                return m_protocol;
+            })
+            ;
 }
 
 Demo1Plugin::~Demo1Plugin() = default;

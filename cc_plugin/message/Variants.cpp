@@ -186,7 +186,12 @@ struct Props2Members
             static QVariantMap createProps_length()
             {
                 using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop1Members::Length;
-                return cc_plugin::field::createProps_propRemLen(Field::name());
+                auto props = cc_plugin::field::createProps_propRemLen(Field::name());
+                auto extraProps =
+                    cc::property::field::Common()
+                        .readOnly(false);
+                extraProps.setTo(props);
+                return props;
                 
             }
             
@@ -231,7 +236,12 @@ struct Props2Members
             static QVariantMap createProps_length()
             {
                 using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop2Members::Length;
-                return cc_plugin::field::createProps_propRemLen(Field::name());
+                auto props = cc_plugin::field::createProps_propRemLen(Field::name());
+                auto extraProps =
+                    cc::property::field::Common()
+                        .readOnly(false);
+                extraProps.setTo(props);
+                return props;
                 
             }
             
@@ -276,7 +286,12 @@ struct Props2Members
             static QVariantMap createProps_length()
             {
                 using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::Prop3Members::Length;
-                return cc_plugin::field::createProps_propRemLen(Field::name());
+                auto props = cc_plugin::field::createProps_propRemLen(Field::name());
+                auto extraProps =
+                    cc::property::field::Common()
+                        .readOnly(false);
+                extraProps.setTo(props);
+                return props;
                 
             }
             
@@ -321,7 +336,12 @@ struct Props2Members
             static QVariantMap createProps_length()
             {
                 using Field = demo1::message::VariantsFields<>::Props2Members::PropertyMembers::UnknownPropMembers::Length;
-                return cc_plugin::field::createProps_propRemLen(Field::name());
+                auto props = cc_plugin::field::createProps_propRemLen(Field::name());
+                auto extraProps =
+                    cc::property::field::Common()
+                        .readOnly(false);
+                extraProps.setTo(props);
+                return props;
                 
             }
             

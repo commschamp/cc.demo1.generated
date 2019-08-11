@@ -23,14 +23,16 @@ namespace
 static QVariantMap createProps_lat()
 {
     using Field = demo1::message::ScaledIntsFields<>::Lat;
-    return cc_plugin::field::createProps_lat(Field::name());
+    auto props = cc_plugin::field::createProps_lat(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_lon()
 {
     using Field = demo1::message::ScaledIntsFields<>::Lon;
-    return cc_plugin::field::createProps_lon(Field::name());
+    auto props = cc_plugin::field::createProps_lon(Field::name());
+    return props;
     
 }
 
