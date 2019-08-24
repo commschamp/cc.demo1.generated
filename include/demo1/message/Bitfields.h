@@ -22,6 +22,80 @@ namespace demo1
 namespace message
 {
 
+/// @brief Common definitions for fields from @ref BitfieldsFields.
+/// @see @ref BitfieldsFields
+/// @headerfile "demo1/message/Bitfields.h"
+struct BitfieldsFieldsCommon
+{
+    /// @brief Scope for all the common definitions of the member fields of
+    ///     @ref demo1::message::BitfieldsFields::F1 bitfield.
+    struct F1MembersCommon
+    {
+        /// @brief Common functions for
+        ///     @ref demo1::message::BitfieldsFields::F1Members::Mem2 field.
+        struct Mem2Common
+        {
+            /// @brief Retrieve name of the bit
+            static const char* bitName(std::size_t idx)
+            {
+                static const char* Map[] = {
+                    "Bit0",
+                    "Bit1",
+                    "Bit2"
+                };
+            
+                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+                if (MapSize <= idx) {
+                    return nullptr;
+                }
+            
+                return Map[idx];
+            }
+            
+        };
+        
+        /// @brief Values enumerator for
+        ///     @ref demo1::message::BitfieldsFields::F1Members::Mem3 field.
+        enum class Mem3Val : std::uint8_t
+        {
+            V1 = 0, ///< value @b V1
+            V2 = 3, ///< value @b V2
+            
+            // --- Extra values generated for convenience ---
+            FirstValue = 0, ///< First defined value.
+            LastValue = 3, ///< Last defined value.
+            ValuesLimit = 4, ///< Upper limit for defined values.
+            
+        };
+        
+        /// @brief Common functions for
+        ///     @ref demo1::message::BitfieldsFields::F1Members::Mem3 field.
+        struct Mem3Common
+        {
+            /// @brief Retrieve name of the enum value
+            static const char* valueName(Mem3Val val)
+            {
+                static const char* Map[] = {
+                    "V1",
+                    nullptr,
+                    nullptr,
+                    "V2"
+                };
+                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+                
+                if (MapSize <= static_cast<std::size_t>(val)) {
+                    return nullptr;
+                }
+                
+                return Map[static_cast<std::size_t>(val)];
+            }
+            
+        };
+        
+    };
+    
+};
+
 /// @brief Fields of @ref Bitfields.
 /// @tparam TOpt Extra options
 /// @see @ref Bitfields
@@ -85,31 +159,16 @@ struct BitfieldsFields
             /// @brief Retrieve name of the bit
             static const char* bitName(BitIdx idx)
             {
-                static const char* Map[] = {
-                    "Bit0",
-                    "Bit1",
-                    "Bit2"
-                };
-            
-                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-                static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
-            
-                if (MapSize <= static_cast<std::size_t>(idx)) {
-                    return nullptr;
-                }
-            
-                return Map[static_cast<std::size_t>(idx)];
+                return
+                    demo1::message::BitfieldsFieldsCommon::F1MembersCommon::Mem2Common::bitName(
+                        static_cast<std::size_t>(idx));
             }
             
         };
         
-        /// @brief Values enumerator for @ref demo1::message::BitfieldsFields::F1Members::Mem3 field.
-        enum class Mem3Val : std::uint8_t
-        {
-            V1 = 0, ///< value @b V1
-            V2 = 3, ///< value @b V2
-            
-        };
+        /// @brief Values enumerator for
+        ///     @ref demo1::message::BitfieldsFields::F1Members::Mem3 field.
+        using Mem3Val = demo1::message::BitfieldsFieldsCommon::F1MembersCommon::Mem3Val;
         
         /// @brief Definition of <b>"Mem3"</b> field.
         /// @see @ref demo1::message::BitfieldsFields::F1Members::Mem3Val
@@ -131,19 +190,7 @@ struct BitfieldsFields
             /// @brief Retrieve name of the enum value
             static const char* valueName(Mem3Val val)
             {
-                static const char* Map[] = {
-                    "V1",
-                    nullptr,
-                    nullptr,
-                    "V2"
-                };
-                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-                
-                if (MapSize <= static_cast<std::size_t>(val)) {
-                    return nullptr;
-                }
-                
-                return Map[static_cast<std::size_t>(val)];
+                return demo1::message::BitfieldsFieldsCommon::F1MembersCommon::Mem3Common::valueName(val);
             }
             
         };

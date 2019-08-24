@@ -43,7 +43,7 @@ struct ListsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref F1 list.
+    /// @brief Scope for all the member fields of ///     @ref F1 list.
     struct F1Members
     {
         /// @brief Definition of <b>"Elem"</b> field.
@@ -82,7 +82,7 @@ struct ListsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref F2 list.
+    /// @brief Scope for all the member fields of ///     @ref F2 list.
     struct F2Members
     {
         /// @brief Definition of <b>"Elem"</b> field.
@@ -121,10 +121,10 @@ struct ListsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref F3 list.
+    /// @brief Scope for all the member fields of ///     @ref F3 list.
     struct F3Members
     {
-        /// @brief Scope for all the member fields of @ref Element bitfield.
+        /// @brief Scope for all the member fields of @ref Element bundle.
         struct ElementMembers
         {
             /// @brief Definition of <b>"Mem1"</b> field.
@@ -235,10 +235,10 @@ struct ListsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref F4 list.
+    /// @brief Scope for all the member fields of ///     @ref F4 list.
     struct F4Members
     {
-        /// @brief Scope for all the member fields of @ref Element bitfield.
+        /// @brief Scope for all the member fields of @ref Element bundle.
         struct ElementMembers
         {
             /// @brief Definition of <b>"Mem1"</b> field.
@@ -366,10 +366,10 @@ struct ListsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref F5 list.
+    /// @brief Scope for all the member fields of ///     @ref F5 list.
     struct F5Members
     {
-        /// @brief Scope for all the member fields of @ref Element bitfield.
+        /// @brief Scope for all the member fields of @ref Element bundle.
         struct ElementMembers
         {
             /// @brief Definition of <b>"Mem1"</b> field.
