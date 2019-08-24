@@ -30,13 +30,13 @@ namespace message
 template <typename TOpt = demo1::options::DefaultOptions>
 struct VariantsFields
 {
-    /// @brief Scope for all the member fields of @ref Props1 list.
+    /// @brief Scope for all the member fields of ///     @ref Props1 list.
     struct Props1Members
     {
         /// @brief Scope for all the member fields of @ref Property bitfield.
         struct PropertyMembers
         {
-            /// @brief Scope for all the member fields of @ref Prop1 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop1 bundle.
             struct Prop1Members
             {
                 /// @brief Definition of <b>"Key"</b> field.
@@ -114,7 +114,7 @@ struct VariantsFields
                 
             };
             
-            /// @brief Scope for all the member fields of @ref Prop2 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop2 bundle.
             struct Prop2Members
             {
                 /// @brief Definition of <b>"Key"</b> field.
@@ -192,7 +192,7 @@ struct VariantsFields
                 
             };
             
-            /// @brief Scope for all the member fields of @ref Prop3 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop3 bundle.
             struct Prop3Members
             {
                 /// @brief Definition of <b>"Key"</b> field.
@@ -472,13 +472,13 @@ struct VariantsFields
         
     };
     
-    /// @brief Scope for all the member fields of @ref Props2 list.
+    /// @brief Scope for all the member fields of ///     @ref Props2 list.
     struct Props2Members
     {
         /// @brief Scope for all the member fields of @ref Property bitfield.
         struct PropertyMembers
         {
-            /// @brief Scope for all the member fields of @ref Prop1 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop1 bundle.
             struct Prop1Members
             {
                 /// @brief Definition of <b>"Type"</b> field.
@@ -567,7 +567,7 @@ struct VariantsFields
                 
             };
             
-            /// @brief Scope for all the member fields of @ref Prop2 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop2 bundle.
             struct Prop2Members
             {
                 /// @brief Definition of <b>"Type"</b> field.
@@ -656,7 +656,7 @@ struct VariantsFields
                 
             };
             
-            /// @brief Scope for all the member fields of @ref Prop3 bitfield.
+            /// @brief Scope for all the member fields of @ref Prop3 bundle.
             struct Prop3Members
             {
                 /// @brief Definition of <b>"Type"</b> field.
@@ -745,7 +745,7 @@ struct VariantsFields
                 
             };
             
-            /// @brief Scope for all the member fields of @ref UnknownProp bitfield.
+            /// @brief Scope for all the member fields of @ref UnknownProp bundle.
             struct UnknownPropMembers
             {
                 /// @brief Definition of <b>"Type"</b> field.

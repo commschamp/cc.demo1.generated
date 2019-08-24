@@ -25,6 +25,11 @@ enum MsgId : std::uint8_t
     MsgId_Optionals = 10, ///< message id of @b Optionals message.
     MsgId_Variants = 11, ///< message id of @b Variants message.
     
+    // --- Extra values generated for convenience ---
+    MsgId_FirstValue = 0, ///< First defined value.
+    MsgId_LastValue = 11, ///< Last defined value.
+    MsgId_ValuesLimit = 12, ///< Upper limit for defined values.
+    
 };
 
 } // namespace demo1

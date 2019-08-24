@@ -76,11 +76,11 @@ struct DefaultOptions
             using F3 = comms::option::app::EmptyOption;
             
             /// @brief Extra options for all the member fields of
-            ///     @ref demo1::message::ListsFields::F4 string.
+            ///     @ref demo1::message::ListsFields::F4 list.
             struct F4Members
             {
                 /// @brief Extra options for all the member fields of
-                ///     @ref demo1::message::ListsFields::F4Members::Element bitfield.
+                ///     @ref demo1::message::ListsFields::F4Members::Element bundle.
                 struct ElementMembers
                 {
                     /// @brief Extra options for @ref
@@ -157,7 +157,7 @@ struct DefaultOptions
         struct VariantsFields
         {
             /// @brief Extra options for all the member fields of
-            ///     @ref demo1::message::VariantsFields::Props1 string.
+            ///     @ref demo1::message::VariantsFields::Props1 list.
             struct Props1Members
             {
                 /// @brief Extra options for all the member fields of
@@ -165,7 +165,7 @@ struct DefaultOptions
                 struct PropertyMembers
                 {
                     /// @brief Extra options for all the member fields of
-                    ///     @ref demo1::message::VariantsFields::Props1Members::PropertyMembers::Prop3 bitfield.
+                    ///     @ref demo1::message::VariantsFields::Props1Members::PropertyMembers::Prop3 bundle.
                     struct Prop3Members
                     {
                         /// @brief Extra options for @ref
@@ -185,7 +185,7 @@ struct DefaultOptions
             using Props1 = comms::option::app::EmptyOption;
             
             /// @brief Extra options for all the member fields of
-            ///     @ref demo1::message::VariantsFields::Props2 string.
+            ///     @ref demo1::message::VariantsFields::Props2 list.
             struct Props2Members
             {
                 /// @brief Extra options for all the member fields of
@@ -193,7 +193,7 @@ struct DefaultOptions
                 struct PropertyMembers
                 {
                     /// @brief Extra options for all the member fields of
-                    ///     @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::Prop3 bitfield.
+                    ///     @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::Prop3 bundle.
                     struct Prop3Members
                     {
                         /// @brief Extra options for @ref
@@ -204,7 +204,7 @@ struct DefaultOptions
                     };
                     
                     /// @brief Extra options for all the member fields of
-                    ///     @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::UnknownProp bitfield.
+                    ///     @ref demo1::message::VariantsFields::Props2Members::PropertyMembers::UnknownProp bundle.
                     struct UnknownPropMembers
                     {
                         /// @brief Extra options for @ref

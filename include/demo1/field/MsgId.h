@@ -17,24 +17,10 @@ namespace demo1
 namespace field
 {
 
-/// @brief Definition of <b>"MsgId"</b> field.
-/// @tparam TOpt Protocol options.
-/// @tparam TExtraOpts Extra options.
-template <typename TOpt = demo1::options::DefaultOptions, typename... TExtraOpts>
-struct MsgId : public
-    comms::field::EnumValue<
-        demo1::field::FieldBase<>,
-        demo1::MsgId,
-        TExtraOpts...,
-        comms::option::def::ValidNumValueRange<0, 11>
-    >
+/// @brief Common functions for
+///     @ref demo1::field::MsgId field.
+struct MsgIdCommon
 {
-    /// @brief Name of the field.
-    static const char* name()
-    {
-        return "MsgId";
-    }
-    
     /// @brief Retrieve name of the enum value
     static const char* valueName(demo1::MsgId val)
     {
@@ -59,6 +45,32 @@ struct MsgId : public
         }
         
         return Map[static_cast<std::size_t>(val)];
+    }
+    
+};
+
+/// @brief Definition of <b>"MsgId"</b> field.
+/// @tparam TOpt Protocol options.
+/// @tparam TExtraOpts Extra options.
+template <typename TOpt = demo1::options::DefaultOptions, typename... TExtraOpts>
+struct MsgId : public
+    comms::field::EnumValue<
+        demo1::field::FieldBase<>,
+        demo1::MsgId,
+        TExtraOpts...,
+        comms::option::def::ValidNumValueRange<0, 11>
+    >
+{
+    /// @brief Name of the field.
+    static const char* name()
+    {
+        return "MsgId";
+    }
+    
+    /// @brief Retrieve name of the enum value
+    static const char* valueName(demo1::MsgId val)
+    {
+        return demo1::field::MsgIdCommon::valueName(val);
     }
     
 };

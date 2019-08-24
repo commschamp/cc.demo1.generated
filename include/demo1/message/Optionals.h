@@ -21,6 +21,35 @@ namespace demo1
 namespace message
 {
 
+/// @brief Common definitions for fields from @ref OptionalsFields.
+/// @see @ref OptionalsFields
+/// @headerfile "demo1/message/Optionals.h"
+struct OptionalsFieldsCommon
+{
+    /// @brief Common functions for
+    ///     @ref demo1::message::OptionalsFields::Flags field.
+    struct FlagsCommon
+    {
+        /// @brief Retrieve name of the bit
+        static const char* bitName(std::size_t idx)
+        {
+            static const char* Map[] = {
+                "F2Exists",
+                "F3Missing"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            if (MapSize <= idx) {
+                return nullptr;
+            }
+        
+            return Map[idx];
+        }
+        
+    };
+    
+};
+
 /// @brief Fields of @ref Optionals.
 /// @tparam TOpt Extra options
 /// @see @ref Optionals
@@ -67,19 +96,9 @@ struct OptionalsFields
         /// @brief Retrieve name of the bit
         static const char* bitName(BitIdx idx)
         {
-            static const char* Map[] = {
-                "F2Exists",
-                "F3Missing"
-            };
-        
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
-        
-            if (MapSize <= static_cast<std::size_t>(idx)) {
-                return nullptr;
-            }
-        
-            return Map[static_cast<std::size_t>(idx)];
+            return
+                demo1::message::OptionalsFieldsCommon::FlagsCommon::bitName(
+                    static_cast<std::size_t>(idx));
         }
         
     };
