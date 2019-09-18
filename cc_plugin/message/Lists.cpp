@@ -50,6 +50,7 @@ static QVariantMap createProps_f1()
             .name(Field::name())
             .add(F1Members::createProps_elem())
             .serialisedHidden()
+            .appendIndexToElementName()
             .asMap();
     
 }
@@ -76,6 +77,7 @@ static QVariantMap createProps_f2()
             .name(Field::name())
             .add(F2Members::createProps_elem())
             .serialisedHidden()
+            .appendIndexToElementName()
             .asMap();
     
 }
@@ -130,6 +132,7 @@ static QVariantMap createProps_f3()
             .serialisedHidden()
             .prefixName("Count")
             .showPrefix()
+            .appendIndexToElementName()
             .asMap();
     
 }
@@ -184,6 +187,7 @@ static QVariantMap createProps_f4()
         cc::property::field::ForField<Field>()
             .name(Field::name())
             .add(F4Members::createProps_element())
+            .appendIndexToElementName()
             .asMap();
     
 }
@@ -238,6 +242,7 @@ static QVariantMap createProps_f5()
         cc::property::field::ForField<Field>()
             .name(Field::name())
             .add(F5Members::createProps_element())
+            .appendIndexToElementName()
             .asMap();
     
 }

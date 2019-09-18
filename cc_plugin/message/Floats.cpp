@@ -23,6 +23,8 @@ static QVariantMap createProps_timeout()
     return
         cc::property::field::ForField<Field>()
             .name(Field::name())
+            .addSpecial("Infinite", 0.000000)
+            .addSpecial("Invalid", std::numeric_limits<double>::quiet_NaN())
             .asMap();
     
 }
@@ -33,6 +35,8 @@ static QVariantMap createProps_distance()
     return
         cc::property::field::ForField<Field>()
             .name(Field::name())
+            .addSpecial("Infinite", std::numeric_limits<double>::infinity())
+            .addSpecial("Invalid", std::numeric_limits<double>::quiet_NaN())
             .asMap();
     
 }
