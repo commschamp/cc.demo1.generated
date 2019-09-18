@@ -162,6 +162,7 @@ static QVariantMap createProps_props1()
             .serialisedHidden()
             .prefixName("Count")
             .showPrefix()
+            .appendIndexToElementName()
             .asMap();
     
 }
@@ -399,6 +400,7 @@ static QVariantMap createProps_props2()
             .serialisedHidden()
             .prefixName("Length")
             .showPrefix()
+            .appendIndexToElementName()
             .asMap();
     
 }
