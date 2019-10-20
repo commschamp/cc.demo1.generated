@@ -222,7 +222,7 @@ struct BitfieldsFields
         ///     related to @b comms::field::Bitfield class from COMMS library
         ///     for details.
         ///
-        ///      The generated access functions are:
+        ///     The generated access functions are:
         ///     @li @b field_mem1() - for F1Members::Mem1 member field.
         ///     @li @b field_mem2() - for F1Members::Mem2 member field.
         ///     @li @b field_mem3() - for F1Members::Mem3 member field.
