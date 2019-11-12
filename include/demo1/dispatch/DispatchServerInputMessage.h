@@ -48,68 +48,57 @@ auto dispatchServerInputMessage(
     case demo1::MsgId_SimpleInts:
     {
         using MsgType = demo1::message::SimpleInts<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_ScaledInts:
     {
         using MsgType = demo1::message::ScaledInts<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Floats:
     {
         using MsgType = demo1::message::Floats<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Enums:
     {
         using MsgType = demo1::message::Enums<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Sets:
     {
         using MsgType = demo1::message::Sets<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Bitfields:
     {
         using MsgType = demo1::message::Bitfields<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Strings:
     {
         using MsgType = demo1::message::Strings<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Datas:
     {
         using MsgType = demo1::message::Datas<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Lists:
     {
         using MsgType = demo1::message::Lists<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Optionals:
     {
         using MsgType = demo1::message::Optionals<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case demo1::MsgId_Variants:
     {
         using MsgType = demo1::message::Variants<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
         break;

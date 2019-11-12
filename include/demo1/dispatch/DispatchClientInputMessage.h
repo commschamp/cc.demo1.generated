@@ -48,8 +48,7 @@ auto dispatchClientInputMessage(
     case demo1::MsgId_Ack:
     {
         using MsgType = demo1::message::Ack<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
         break;
