@@ -214,16 +214,19 @@ class Optionals : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_flags() for @ref OptionalsFields::Flags field.
-    ///     @li @b field_f2() for @ref OptionalsFields::F2 field.
-    ///     @li @b field_f3() for @ref OptionalsFields::F3 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_flags type and @b field_flags() fuction
+    ///         for @ref OptionalsFields::Flags field.
+    ///     @li @b Field_f2 type and @b field_f2() fuction
+    ///         for @ref OptionalsFields::F2 field.
+    ///     @li @b Field_f3 type and @b field_f3() fuction
+    ///         for @ref OptionalsFields::F3 field.
+    COMMS_MSG_FIELDS_NAMES(
         flags,
         f2,
         f3

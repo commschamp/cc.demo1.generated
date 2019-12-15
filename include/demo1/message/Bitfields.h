@@ -218,15 +218,18 @@ struct BitfieldsFields
             >;
     public:
         /// @brief Allow access to internal fields.
-        /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+        /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
         ///     related to @b comms::field::Bitfield class from COMMS library
         ///     for details.
         ///
         ///     The generated access functions are:
-        ///     @li @b field_mem1() - for F1Members::Mem1 member field.
-        ///     @li @b field_mem2() - for F1Members::Mem2 member field.
-        ///     @li @b field_mem3() - for F1Members::Mem3 member field.
-        COMMS_FIELD_MEMBERS_ACCESS(
+        ///     @li @b Field_mem1 @b field_mem1() -
+        ///         for F1Members::Mem1 member field.
+        ///     @li @b Field_mem2 @b field_mem2() -
+        ///         for F1Members::Mem2 member field.
+        ///     @li @b Field_mem3 @b field_mem3() -
+        ///         for F1Members::Mem3 member field.
+        COMMS_FIELD_MEMBERS_NAMES(
             mem1,
             mem2,
             mem3
@@ -275,14 +278,15 @@ class Bitfields : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_f1() for @ref BitfieldsFields::F1 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_f1 type and @b field_f1() fuction
+    ///         for @ref BitfieldsFields::F1 field.
+    COMMS_MSG_FIELDS_NAMES(
         f1
     );
     

@@ -94,14 +94,16 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_key() - for Prop1Members::Key member field.
-                ///     @li @b field_val() - for Prop1Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_key @b field_key() -
+                ///         for Prop1Members::Key member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop1Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     key,
                     val
                 );
@@ -172,14 +174,16 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_key() - for Prop2Members::Key member field.
-                ///     @li @b field_val() - for Prop2Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_key @b field_key() -
+                ///         for Prop2Members::Key member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop2Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     key,
                     val
                 );
@@ -271,14 +275,16 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_key() - for Prop3Members::Key member field.
-                ///     @li @b field_val() - for Prop3Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_key @b field_key() -
+                ///         for Prop3Members::Key member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop3Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     key,
                     val
                 );
@@ -316,7 +322,7 @@ struct VariantsFields
                 >;
         public:
             /// @brief Allow access to internal fields.
-            /// @details See definition of @b COMMS_VARIANT_MEMBERS_ACCESS macro
+            /// @details See definition of @b COMMS_VARIANT_MEMBERS_NAMES macro
             ///     related to @b comms::field::Variant class from COMMS library
             ///     for details.
             ///
@@ -324,7 +330,7 @@ struct VariantsFields
             ///     @li @b initField_prop1() and @b accessField_prop1() - for PropertyMembers::Prop1 member field.
             ///     @li @b initField_prop2() and @b accessField_prop2() - for PropertyMembers::Prop2 member field.
             ///     @li @b initField_prop3() and @b accessField_prop3() - for PropertyMembers::Prop3 member field.
-            COMMS_VARIANT_MEMBERS_ACCESS(
+            COMMS_VARIANT_MEMBERS_NAMES(
                 prop1,
                 prop2,
                 prop3
@@ -545,15 +551,18 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_type() - for Prop1Members::Type member field.
-                ///     @li @b field_length() - for Prop1Members::Length member field.
-                ///     @li @b field_val() - for Prop1Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_type @b field_type() -
+                ///         for Prop1Members::Type member field.
+                ///     @li @b Field_length @b field_length() -
+                ///         for Prop1Members::Length member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop1Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     type,
                     length,
                     val
@@ -634,15 +643,18 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_type() - for Prop2Members::Type member field.
-                ///     @li @b field_length() - for Prop2Members::Length member field.
-                ///     @li @b field_val() - for Prop2Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_type @b field_type() -
+                ///         for Prop2Members::Type member field.
+                ///     @li @b Field_length @b field_length() -
+                ///         for Prop2Members::Length member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop2Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     type,
                     length,
                     val
@@ -723,15 +735,18 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_type() - for Prop3Members::Type member field.
-                ///     @li @b field_length() - for Prop3Members::Length member field.
-                ///     @li @b field_val() - for Prop3Members::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_type @b field_type() -
+                ///         for Prop3Members::Type member field.
+                ///     @li @b Field_length @b field_length() -
+                ///         for Prop3Members::Length member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for Prop3Members::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     type,
                     length,
                     val
@@ -810,15 +825,18 @@ struct VariantsFields
                     >;
             public:
                 /// @brief Allow access to internal fields.
-                /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+                /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
                 ///     related to @b comms::field::Bundle class from COMMS library
                 ///     for details.
                 ///
                 ///     The generated access functions are:
-                ///     @li @b field_type() - for UnknownPropMembers::Type member field.
-                ///     @li @b field_length() - for UnknownPropMembers::Length member field.
-                ///     @li @b field_val() - for UnknownPropMembers::Val member field.
-                COMMS_FIELD_MEMBERS_ACCESS(
+                ///     @li @b Field_type @b field_type() -
+                ///         for UnknownPropMembers::Type member field.
+                ///     @li @b Field_length @b field_length() -
+                ///         for UnknownPropMembers::Length member field.
+                ///     @li @b Field_val @b field_val() -
+                ///         for UnknownPropMembers::Val member field.
+                COMMS_FIELD_MEMBERS_NAMES(
                     type,
                     length,
                     val
@@ -858,7 +876,7 @@ struct VariantsFields
                 >;
         public:
             /// @brief Allow access to internal fields.
-            /// @details See definition of @b COMMS_VARIANT_MEMBERS_ACCESS macro
+            /// @details See definition of @b COMMS_VARIANT_MEMBERS_NAMES macro
             ///     related to @b comms::field::Variant class from COMMS library
             ///     for details.
             ///
@@ -867,7 +885,7 @@ struct VariantsFields
             ///     @li @b initField_prop2() and @b accessField_prop2() - for PropertyMembers::Prop2 member field.
             ///     @li @b initField_prop3() and @b accessField_prop3() - for PropertyMembers::Prop3 member field.
             ///     @li @b initField_unknownProp() and @b accessField_unknownProp() - for PropertyMembers::UnknownProp member field.
-            COMMS_VARIANT_MEMBERS_ACCESS(
+            COMMS_VARIANT_MEMBERS_NAMES(
                 prop1,
                 prop2,
                 prop3,
@@ -1062,15 +1080,17 @@ class Variants : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_props1() for @ref VariantsFields::Props1 field.
-    ///     @li @b field_props2() for @ref VariantsFields::Props2 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_props1 type and @b field_props1() fuction
+    ///         for @ref VariantsFields::Props1 field.
+    ///     @li @b Field_props2 type and @b field_props2() fuction
+    ///         for @ref VariantsFields::Props2 field.
+    COMMS_MSG_FIELDS_NAMES(
         props1,
         props2
     );

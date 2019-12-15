@@ -233,23 +233,33 @@ class SimpleInts : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_f1() for @ref SimpleIntsFields::F1 field.
-    ///     @li @b field_f2() for @ref SimpleIntsFields::F2 field.
-    ///     @li @b field_f3() for @ref SimpleIntsFields::F3 field.
-    ///     @li @b field_f4() for @ref SimpleIntsFields::F4 field.
-    ///     @li @b field_f5() for @ref SimpleIntsFields::F5 field.
-    ///     @li @b field_f6() for @ref SimpleIntsFields::F6 field.
-    ///     @li @b field_f7() for @ref SimpleIntsFields::F7 field.
-    ///     @li @b field_f8() for @ref SimpleIntsFields::F8 field.
-    ///     @li @b field_f9() for @ref SimpleIntsFields::F9 field.
-    ///     @li @b field_f10() for @ref SimpleIntsFields::F10 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_f1 type and @b field_f1() fuction
+    ///         for @ref SimpleIntsFields::F1 field.
+    ///     @li @b Field_f2 type and @b field_f2() fuction
+    ///         for @ref SimpleIntsFields::F2 field.
+    ///     @li @b Field_f3 type and @b field_f3() fuction
+    ///         for @ref SimpleIntsFields::F3 field.
+    ///     @li @b Field_f4 type and @b field_f4() fuction
+    ///         for @ref SimpleIntsFields::F4 field.
+    ///     @li @b Field_f5 type and @b field_f5() fuction
+    ///         for @ref SimpleIntsFields::F5 field.
+    ///     @li @b Field_f6 type and @b field_f6() fuction
+    ///         for @ref SimpleIntsFields::F6 field.
+    ///     @li @b Field_f7 type and @b field_f7() fuction
+    ///         for @ref SimpleIntsFields::F7 field.
+    ///     @li @b Field_f8 type and @b field_f8() fuction
+    ///         for @ref SimpleIntsFields::F8 field.
+    ///     @li @b Field_f9 type and @b field_f9() fuction
+    ///         for @ref SimpleIntsFields::F9 field.
+    ///     @li @b Field_f10 type and @b field_f10() fuction
+    ///         for @ref SimpleIntsFields::F10 field.
+    COMMS_MSG_FIELDS_NAMES(
         f1,
         f2,
         f3,

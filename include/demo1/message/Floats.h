@@ -187,15 +187,17 @@ class Floats : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_timeout() for @ref FloatsFields::Timeout field.
-    ///     @li @b field_distance() for @ref FloatsFields::Distance field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_timeout type and @b field_timeout() fuction
+    ///         for @ref FloatsFields::Timeout field.
+    ///     @li @b Field_distance type and @b field_distance() fuction
+    ///         for @ref FloatsFields::Distance field.
+    COMMS_MSG_FIELDS_NAMES(
         timeout,
         distance
     );
