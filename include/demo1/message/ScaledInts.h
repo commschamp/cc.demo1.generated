@@ -113,17 +113,21 @@ class ScaledInts : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_lat() for @ref ScaledIntsFields::Lat field.
-    ///     @li @b field_lon() for @ref ScaledIntsFields::Lon field.
-    ///     @li @b field_height() for @ref ScaledIntsFields::Height field.
-    ///     @li @b field_someScaledVal() for @ref ScaledIntsFields::SomeScaledVal field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_lat type and @b field_lat() fuction
+    ///         for @ref ScaledIntsFields::Lat field.
+    ///     @li @b Field_lon type and @b field_lon() fuction
+    ///         for @ref ScaledIntsFields::Lon field.
+    ///     @li @b Field_height type and @b field_height() fuction
+    ///         for @ref ScaledIntsFields::Height field.
+    ///     @li @b Field_someScaledVal type and @b field_someScaledVal() fuction
+    ///         for @ref ScaledIntsFields::SomeScaledVal field.
+    COMMS_MSG_FIELDS_NAMES(
         lat,
         lon,
         height,

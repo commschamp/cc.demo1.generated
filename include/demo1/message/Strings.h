@@ -215,19 +215,25 @@ class Strings : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_f4Len() for @ref StringsFields::F4Len field.
-    ///     @li @b field_f1() for @ref StringsFields::F1 field.
-    ///     @li @b field_f2() for @ref StringsFields::F2 field.
-    ///     @li @b field_f3() for @ref StringsFields::F3 field.
-    ///     @li @b field_f4() for @ref StringsFields::F4 field.
-    ///     @li @b field_f5() for @ref StringsFields::F5 field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_f4Len type and @b field_f4Len() fuction
+    ///         for @ref StringsFields::F4Len field.
+    ///     @li @b Field_f1 type and @b field_f1() fuction
+    ///         for @ref StringsFields::F1 field.
+    ///     @li @b Field_f2 type and @b field_f2() fuction
+    ///         for @ref StringsFields::F2 field.
+    ///     @li @b Field_f3 type and @b field_f3() fuction
+    ///         for @ref StringsFields::F3 field.
+    ///     @li @b Field_f4 type and @b field_f4() fuction
+    ///         for @ref StringsFields::F4 field.
+    ///     @li @b Field_f5 type and @b field_f5() fuction
+    ///         for @ref StringsFields::F5 field.
+    COMMS_MSG_FIELDS_NAMES(
         f4Len,
         f1,
         f2,
