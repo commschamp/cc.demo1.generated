@@ -26,11 +26,11 @@ namespace dispatch
 ///     to handle and one for the interface class as well.
 ///     @code
 ///     using MyInterface = demo1::Message<...>;
-///     using MySimpleInts = demo1::message::SimpleInts<MyInterface, demo1::options::DefaultOptions>;
-///     using MyScaledInts = demo1::message::ScaledInts<MyInterface, demo1::options::DefaultOptions>;
+///     using MyAck = demo1::message::Ack<MyInterface, demo1::options::DefaultOptions>;
+///     using MySomeOtherMessage = SomeOtherMessage<MyInterface, demo1::options::DefaultOptions>;
 ///     struct MyHandler {
-///         void handle(MySimpleInts& msg) {...}
-///         void handle(MyScaledInts& msg) {...}
+///         void handle(MyAck& msg) {...}
+///         void handle(MySomeOtherMessage& msg) {...}
 ///         ...
 ///         // Handle all unexpected or irrelevant messages.
 ///         void handle(MyInterface& msg) {...}
@@ -47,59 +47,9 @@ auto dispatchClientInputMessage(
 {
     using InterfaceType = typename std::decay<decltype(msg)>::type;
     switch(id) {
-    case demo1::MsgId_SimpleInts:
+    case demo1::MsgId_Ack:
     {
-        using MsgType = demo1::message::SimpleInts<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_ScaledInts:
-    {
-        using MsgType = demo1::message::ScaledInts<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Floats:
-    {
-        using MsgType = demo1::message::Floats<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Enums:
-    {
-        using MsgType = demo1::message::Enums<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Sets:
-    {
-        using MsgType = demo1::message::Sets<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Bitfields:
-    {
-        using MsgType = demo1::message::Bitfields<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Strings:
-    {
-        using MsgType = demo1::message::Strings<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Datas:
-    {
-        using MsgType = demo1::message::Datas<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Lists:
-    {
-        using MsgType = demo1::message::Lists<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Optionals:
-    {
-        using MsgType = demo1::message::Optionals<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case demo1::MsgId_Variants:
-    {
-        using MsgType = demo1::message::Variants<InterfaceType, TProtOptions>;
+        using MsgType = demo1::message::Ack<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
